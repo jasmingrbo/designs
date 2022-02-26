@@ -5,10 +5,14 @@
       <map>
         <entry key="../../../../layout/compose-model-1645887556896.xml" value="0.29307432432432434" />
         <entry key="../../../../layout/compose-model-1645891142187.xml" value="0.5" />
+        <entry key="../../../../layout/compose-model-1645893478316.xml" value="0.29307432432432434" />
+        <entry key="../../../../layout/compose-model-1645893489319.xml" value="1.0" />
         <entry key="app/src/main/res/drawable/ic_menu_burger.xml" value="0.166" />
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.166" />
         <entry key="app/src/main/res/drawable/ic_syringe.xml" value="0.166" />
         <entry key="doctors/src/main/res/drawable/ic_menu_burger.xml" value="0.166" />
+        <entry key="doctors/src/main/res/drawable/ic_stethoscope.xml" value="0.166" />
+        <entry key="doctors/src/main/res/drawable/ic_syringe.xml" value="0.179" />
       </map>
     </option>
   </component>

@@ -2,4 +2,12 @@
     <string name="app_name">Doctors</string>
     <string name="doctors_headline">Find your doctor</string>
     <string name="doctors_searcher_placeholder">Search doctor, medicines etc.</string>
+    <string name="doctors_consultation">Consultation</string>
+    <string name="doctors_dental">Dental</string>
+    <string name="doctors_heart">Heart</string>
+    <string name="doctors_hospitals">Hospitals</string>
+    <string name="doctors_medicines">Medicines</string>
+    <string name="doctors_physician">Physician</string>
+    <string name="doctors_skin">Skin</string>
+    <string name="doctors_surgeon">Surgeon</string>
 </resources>

@@ -39,6 +39,17 @@ fun DoctorsScreen(
             searchTerm = searchTerm,
             onSearchTermChanged = onSearchTermChanged
         )
+        VerticalSpacer(24.dp)
+        Categories(
+            onConsultationButtonClicked = {},
+            onDentalButtonClicked = {},
+            onHeartButtonClicked = {},
+            onHospitalsButtonClicked = {},
+            onMedicinesButtonClicked = {},
+            onPhysicianButtonClicked = {},
+            onSkinButtonClicked = {},
+            onSurgeonButtonClicked = {}
+        )
     }
 }
 
