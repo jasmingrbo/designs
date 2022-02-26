@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import ba.grbo.doctors.composables.DoctorsScreen
 import ba.grbo.doctors.ui.theme.DoctorsTheme
 
-class MainActivity : ComponentActivity() {
+class DoctorsActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {

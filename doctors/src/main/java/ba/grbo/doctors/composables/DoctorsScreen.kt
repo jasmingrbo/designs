@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
@@ -75,13 +75,13 @@ fun DoctorsScreen(
         }
         VerticalSpacer(12.dp)
         LazyColumn(modifier = Modifier.padding(horizontal = 24.dp)) {
-            items(items = doctors, key = { doctor -> doctor.fullName }) { doctor ->
+            itemsIndexed(items = doctors, key = { _, doctor -> doctor.fullName }) { index, doctor ->
                 Doctor(
                     doctor = doctor,
                     onClicked = onDoctorClicked,
                     onAvailabilityButtonClicked = onDoctorAvailabilityButtonClicked
                 )
-                VerticalSpacer(16.dp)
+                VerticalSpacer(if (index != doctors.lastIndex) 16.dp else 24.dp)
             }
         }
     }

@@ -1,6 +1,6 @@
 package ba.grbo.doctors
 
-import java.util.*
+import java.util.Locale
 
 enum class Specialization {
     HEART,
