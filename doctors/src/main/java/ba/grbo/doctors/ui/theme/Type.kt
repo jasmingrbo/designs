@@ -5,9 +5,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.ExperimentalUnitApi
-import androidx.compose.ui.unit.TextUnit
-import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.sp
 import ba.grbo.doctors.R
 
@@ -19,7 +16,6 @@ val lato = FontFamily(
 
 val sourceSansPro = FontFamily(Font(R.font.source_sans_pro))
 
-@OptIn(ExperimentalUnitApi::class)
 val Typography = Typography(
     h4 = TextStyle(
         fontFamily = lato,

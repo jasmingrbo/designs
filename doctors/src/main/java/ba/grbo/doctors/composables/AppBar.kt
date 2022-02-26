@@ -1,7 +1,6 @@
 package ba.grbo.doctors.composables
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -31,7 +30,7 @@ fun AppBar(
         IconButton(onClick = onMenuButtonClicked) {
             Icon(
                 painter = painterResource(R.drawable.ic_menu_burger),
-                contentDescription = stringResource(R.string.menu)
+                contentDescription = stringResource(R.string.doctors_menu)
             )
         }
         Box(modifier = Modifier.weight(1f))
@@ -39,7 +38,7 @@ fun AppBar(
             Image(
                 modifier = Modifier.size(36.dp),
                 painter = painterResource(R.drawable.user),
-                contentDescription = stringResource(R.string.user)
+                contentDescription = stringResource(R.string.doctors_user)
             )
         }
     }
