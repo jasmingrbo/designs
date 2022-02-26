@@ -21,6 +21,15 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import ba.grbo.doctors.Category
+import ba.grbo.doctors.Category.CONSULTATION
+import ba.grbo.doctors.Category.DENTAL
+import ba.grbo.doctors.Category.HEART
+import ba.grbo.doctors.Category.HOSPITALS
+import ba.grbo.doctors.Category.MEDICINES
+import ba.grbo.doctors.Category.PHYSICIAN
+import ba.grbo.doctors.Category.SKIN
+import ba.grbo.doctors.Category.SURGEON
 import ba.grbo.doctors.R
 import ba.grbo.doctors.ui.theme.coral
 import ba.grbo.doctors.ui.theme.dodgerBlue
@@ -34,76 +43,73 @@ import ba.grbo.doctors.ui.theme.white
 @Composable
 fun Categories(
     modifier: Modifier = Modifier,
-    onConsultationButtonClicked: () -> Unit,
-    onDentalButtonClicked: () -> Unit,
-    onHeartButtonClicked: () -> Unit,
-    onHospitalsButtonClicked: () -> Unit,
-    onMedicinesButtonClicked: () -> Unit,
-    onPhysicianButtonClicked: () -> Unit,
-    onSkinButtonClicked: () -> Unit,
-    onSurgeonButtonClicked: () -> Unit
+    onCategoryButtonClicked: (Category) -> Unit
 ) {
     Column(modifier = modifier) {
         Row(
-            modifier = Modifier.padding(start = 19.dp, end = 24.dp).fillMaxWidth(),
+            modifier = Modifier
+                .padding(start = 19.dp, end = 24.dp)
+                .fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Category(
                 boxColor = MaterialTheme.colors.primary,
                 iconResource = R.drawable.ic_stethoscope,
                 textResource = R.string.doctors_consultation,
-                onClicked = onConsultationButtonClicked
+                onClicked = { onCategoryButtonClicked(CONSULTATION) }
             )
             HorizontalSpacer(27.dp)
             Category(
                 boxColor = heliotrope,
                 iconResource = R.drawable.ic_tooth,
                 textResource = R.string.doctors_dental,
-                onClicked = onDentalButtonClicked
+                onClicked = { onCategoryButtonClicked(DENTAL) }
             )
             HorizontalSpacer(32.dp)
             Category(
                 boxColor = coral,
                 iconResource = R.drawable.ic_heart,
                 textResource = R.string.doctors_heart,
-                onClicked = onHeartButtonClicked
+                onClicked = { onCategoryButtonClicked(HEART) }
             )
             HorizontalSpacer(32.dp)
             Category(
                 boxColor = seaBuckthorn,
                 iconResource = R.drawable.ic_clinic,
                 textResource = R.string.doctors_hospitals,
-                onClicked = onHospitalsButtonClicked
+                onClicked = { onCategoryButtonClicked(HOSPITALS) }
             )
         }
         VerticalSpacer(12.dp)
         Row(
-            modifier = Modifier.padding(horizontal = 24.dp).fillMaxWidth(),
+            modifier = Modifier
+                .padding(horizontal = 24.dp)
+                .fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Category(
                 boxColor = MaterialTheme.colors.secondary,
                 iconResource = R.drawable.ic_medicine,
                 textResource = R.string.doctors_medicines,
-                onClicked = onMedicinesButtonClicked
+                onClicked = { onCategoryButtonClicked(MEDICINES) }
             )
             Category(
                 boxColor = robinsEggBlue,
                 iconResource = R.drawable.ic_care,
                 textResource = R.string.doctors_physician,
-                onClicked = onPhysicianButtonClicked
+                onClicked = { onCategoryButtonClicked(PHYSICIAN) }
             )
             Category(
                 boxColor = razzleDazzleRose,
                 iconResource = R.drawable.ic_bandage,
                 textResource = R.string.doctors_skin,
-                onClicked = onSkinButtonClicked
+                onClicked = { onCategoryButtonClicked(SKIN) }
             )
             Category(
                 boxColor = sunsetOrange,
                 iconResource = R.drawable.ic_syringe,
                 textResource = R.string.doctors_surgeon,
-                onClicked = onSurgeonButtonClicked
+                onClicked = { onCategoryButtonClicked(SURGEON) }
             )
         }
     }
@@ -151,5 +157,13 @@ fun PreviewCategory() {
             textResource = R.string.doctors_consultation,
             onClicked = {}
         )
+    }
+}
+
+@Preview
+@Composable
+fun PreviewCategories() {
+    Preview {
+        Categories(onCategoryButtonClicked = {})
     }
 }

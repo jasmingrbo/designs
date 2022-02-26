@@ -10,4 +10,6 @@
     <string name="doctors_physician">Physician</string>
     <string name="doctors_skin">Skin</string>
     <string name="doctors_surgeon">Surgeon</string>
+    <string name="doctors_subtitle">Top doctors</string>
+    <string name="doctors_view_all_button">View all</string>
 </resources>
