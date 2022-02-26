@@ -3,4 +3,5 @@
     <string name="doctors_menu">Menu</string>
     <string name="doctors_user">User</string>
     <string name="doctors_reset_button">Reset input</string>
+    <string name="doctors_doctor_picture">Doctor\'s picture</string>
 </resources>

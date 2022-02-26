@@ -8,10 +8,14 @@
         <entry key="../../../../layout/compose-model-1645893478316.xml" value="0.29307432432432434" />
         <entry key="../../../../layout/compose-model-1645893489319.xml" value="1.0" />
         <entry key="../../../../layout/compose-model-1645894359874.xml" value="0.3314814814814815" />
+        <entry key="../../../../layout/compose-model-1645903821086.xml" value="0.28125" />
+        <entry key="../../../../layout/compose-model-1645903841527.xml" value="0.9694444444444444" />
+        <entry key="../../../../layout/compose-model-1645909416165.xml" value="0.3314814814814815" />
         <entry key="app/src/main/res/drawable/ic_menu_burger.xml" value="0.166" />
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.166" />
         <entry key="app/src/main/res/drawable/ic_syringe.xml" value="0.166" />
         <entry key="doctors/src/main/res/drawable/ic_menu_burger.xml" value="0.166" />
+        <entry key="doctors/src/main/res/drawable/ic_star.xml" value="0.179" />
         <entry key="doctors/src/main/res/drawable/ic_stethoscope.xml" value="0.166" />
         <entry key="doctors/src/main/res/drawable/ic_syringe.xml" value="0.179" />
       </map>

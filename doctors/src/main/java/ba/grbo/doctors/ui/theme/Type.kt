@@ -48,10 +48,10 @@ val Typography = Typography(
         lineHeight = 24.sp
     ),
     body2 = TextStyle(
-        fontFamily = lato,
+        fontFamily = sourceSansPro,
         fontWeight = FontWeight.Normal,
-        fontSize = 16.sp,
-        lineHeight = 24.sp
+        fontSize = 14.sp,
+        lineHeight = 20.sp
     ),
     button = TextStyle(
         fontFamily = lato,

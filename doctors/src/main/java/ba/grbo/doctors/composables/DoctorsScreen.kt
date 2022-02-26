@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
@@ -19,11 +21,15 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import ba.grbo.doctors.Category
+import ba.grbo.doctors.Doctor
 import ba.grbo.doctors.R
 import ba.grbo.doctors.ui.theme.grayChateau
 
 @Composable
 fun DoctorsScreen(
+    doctors: List<Doctor>,
+    onDoctorClicked: (Doctor) -> Unit,
+    onDoctorAvailabilityButtonClicked: () -> Unit,
     onMenuButtonClicked: () -> Unit,
     onUserButtonClicked: () -> Unit,
     onCategoryButtonClicked: (Category) -> Unit,
@@ -31,7 +37,7 @@ fun DoctorsScreen(
 ) {
     Column {
         AppBar(
-            modifier = Modifier.padding(start = 12.dp, end = 18.dp, top = 60.dp),
+            modifier = Modifier.padding(start = 12.dp, end = 18.dp, top = 24.dp),
             onMenuButtonClicked = onMenuButtonClicked,
             onUserButtonClicked = onUserButtonClicked
         )
@@ -51,7 +57,7 @@ fun DoctorsScreen(
         Categories(
             onCategoryButtonClicked = onCategoryButtonClicked
         )
-        VerticalSpacer(16.dp)
+        VerticalSpacer(12.dp)
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -65,6 +71,17 @@ fun DoctorsScreen(
             )
             TextButton(onClick = onViewAllButtonClicked) {
                 Text(text = stringResource(R.string.doctors_view_all_button))
+            }
+        }
+        VerticalSpacer(12.dp)
+        LazyColumn(modifier = Modifier.padding(horizontal = 24.dp)) {
+            items(items = doctors, key = { doctor -> doctor.fullName }) { doctor ->
+                Doctor(
+                    doctor = doctor,
+                    onClicked = onDoctorClicked,
+                    onAvailabilityButtonClicked = onDoctorAvailabilityButtonClicked
+                )
+                VerticalSpacer(16.dp)
             }
         }
     }

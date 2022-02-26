@@ -21,6 +21,9 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colors.background
                 ) {
                     DoctorsScreen(
+                        doctors = Doctors.value,
+                        onDoctorClicked = { showNotImplementedToast() },
+                        onDoctorAvailabilityButtonClicked = ::showNotImplementedToast,
                         onMenuButtonClicked = ::showNotImplementedToast,
                         onUserButtonClicked = ::showNotImplementedToast,
                         onCategoryButtonClicked = { showNotImplementedToast() },

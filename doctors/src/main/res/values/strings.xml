@@ -12,4 +12,6 @@
     <string name="doctors_surgeon">Surgeon</string>
     <string name="doctors_subtitle">Top doctors</string>
     <string name="doctors_view_all_button">View all</string>
+    <string name="doctors_doctor_available">Open</string>
+    <string name="doctors_doctor_unavailable">Close</string>
 </resources>
