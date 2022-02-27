@@ -81,7 +81,7 @@ fun Doctor(
                         HorizontalSpacer(4.dp)
                     }
                     Text(
-                        text = "(${doctor.rating})",
+                        text = "(${doctor.patients})",
                         style = MaterialTheme.typography.caption.copy(fontSize = 10.sp),
                         color = silver
                     )
