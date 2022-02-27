@@ -126,6 +126,7 @@ fun PreviewDoctor() {
     Preview {
         Doctor(
             doctor = Doctor(
+                id = 1,
                 fullName = "Gilang Segara Bening",
                 pictureResource = R.drawable.gilang_segara_bening,
                 specialization = HEART,
