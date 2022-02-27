@@ -49,7 +49,9 @@ fun DoctorsNavHost(
             DoctorScreen(
                 doctor = doctor,
                 onBackButtonClicked = { navController.popBackStack() },
-                onBookmarkButtonClicked = { showNotImplementedToast() }
+                onBookmarkButtonClicked = { showNotImplementedToast() },
+                onMessageButtonClicked = { showNotImplementedToast() },
+                onMakeAppointmentButtonClicked = { showNotImplementedToast() }
             )
         }
     }

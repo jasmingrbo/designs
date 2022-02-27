@@ -19,4 +19,5 @@
     <string name="doctor_rating_label">Rating</string>
     <string name="doctor_years_abbreviation_label">yr</string>
     <string name="doctor_patients_abbreviation_label">ps</string>
+    <string name="doctor_make_appointment_button">Make an Appointment</string>
 </resources>

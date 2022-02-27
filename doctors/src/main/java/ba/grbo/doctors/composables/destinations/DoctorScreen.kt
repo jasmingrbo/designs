@@ -11,7 +11,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Divider
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -19,6 +22,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.BiasAlignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -31,27 +35,33 @@ import androidx.compose.ui.unit.sp
 import ba.grbo.doctors.Doctor
 import ba.grbo.doctors.R
 import ba.grbo.doctors.composables.AppBar
+import ba.grbo.doctors.composables.HorizontalSpacer
 import ba.grbo.doctors.composables.VerticalSpacer
+import ba.grbo.doctors.ui.theme.athensGray
 import ba.grbo.doctors.ui.theme.curiousBlue
 import ba.grbo.doctors.ui.theme.lato
 import ba.grbo.doctors.ui.theme.silver
 import ba.grbo.doctors.ui.theme.silverChalice
 import ba.grbo.doctors.ui.theme.sourceSansPro
+import ba.grbo.doctors.ui.theme.white
 
 @Composable
 fun DoctorScreen(
     modifier: Modifier = Modifier,
     doctor: Doctor,
     onBackButtonClicked: () -> Unit,
-    onBookmarkButtonClicked: () -> Unit
+    onBookmarkButtonClicked: () -> Unit,
+    onMessageButtonClicked: (Int) -> Unit,
+    onMakeAppointmentButtonClicked: (Int) -> Unit
 ) {
     Column(modifier = modifier.fillMaxSize()) {
-        Box {
+        Box(modifier = Modifier.weight(1f)) {
             Image(
                 modifier = Modifier.fillMaxWidth(),
                 painter = painterResource(doctor.pictureResource),
                 contentDescription = null,
-                contentScale = ContentScale.FillWidth
+                contentScale = ContentScale.FillWidth,
+                alignment = BiasAlignment(0f, -0.4f)
             )
             AppBar(
                 modifier = Modifier.padding(start = 12.dp, end = 18.dp, top = 24.dp),
@@ -106,9 +116,10 @@ fun DoctorScreen(
                 titleResource = R.string.doctor_experience_label,
                 abbreviationResource = R.string.doctor_years_abbreviation_label
             )
-            Divider(modifier = Modifier
-                .fillMaxHeight()
-                .width(1.dp)
+            Divider(
+                modifier = Modifier
+                    .fillMaxHeight()
+                    .width(1.dp)
             )
             Statistics(
                 modifier = Modifier.weight(1f),
@@ -116,9 +127,10 @@ fun DoctorScreen(
                 titleResource = R.string.doctor_patients_label,
                 abbreviationResource = R.string.doctor_patients_abbreviation_label
             )
-            Divider(modifier = Modifier
-                .fillMaxHeight()
-                .width(1.dp)
+            Divider(
+                modifier = Modifier
+                    .fillMaxHeight()
+                    .width(1.dp)
             )
             Statistics(
                 modifier = Modifier.weight(1f),
@@ -126,6 +138,48 @@ fun DoctorScreen(
                 titleResource = R.string.doctor_rating_label
             )
         }
+        VerticalSpacer(20.dp)
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 24.dp)
+        ) {
+            Button(
+                modifier = Modifier.size(56.dp),
+                shape = MaterialTheme.shapes.medium,
+                colors = ButtonDefaults.buttonColors(
+                    backgroundColor = MaterialTheme.colors.primary,
+                    contentColor = white
+                ),
+                onClick = { onMessageButtonClicked(doctor.id) }
+            ) {
+                Icon(
+                    modifier = Modifier.align(Alignment.CenterVertically),
+                    painter = painterResource(R.drawable.ic_comment),
+                    contentDescription = null
+                )
+            }
+            HorizontalSpacer(16.dp)
+            Button(
+                modifier = Modifier
+                    .height(56.dp)
+                    .weight(1f),
+                shape = MaterialTheme.shapes.medium,
+                colors = ButtonDefaults.buttonColors(
+                    backgroundColor = MaterialTheme.colors.secondary,
+                    contentColor = white
+                ),
+                onClick = { onMakeAppointmentButtonClicked(doctor.id) }
+            ) {
+                Text(
+                    modifier = Modifier.align(Alignment.CenterVertically),
+                    text = stringResource(R.string.doctor_make_appointment_button),
+                    style = MaterialTheme.typography.button,
+                    color = athensGray
+                )
+            }
+        }
+        VerticalSpacer(24.dp)
     }
 }
 
