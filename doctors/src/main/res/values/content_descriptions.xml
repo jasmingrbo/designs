@@ -4,4 +4,6 @@
     <string name="doctors_user">User</string>
     <string name="doctors_reset_button">Reset input</string>
     <string name="doctors_doctor_picture">Doctor\'s picture</string>
+    <string name="doctor_back_arrow">Back arrow</string>
+    <string name="doctor_bookmark">Bookmark</string>
 </resources>

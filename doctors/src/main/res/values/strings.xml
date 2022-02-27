@@ -14,4 +14,9 @@
     <string name="doctors_view_all_button">View all</string>
     <string name="doctors_doctor_available">Open</string>
     <string name="doctors_doctor_unavailable">Close</string>
+    <string name="doctor_experience_label">Experience</string>
+    <string name="doctor_patients_label">Patients</string>
+    <string name="doctor_rating_label">Rating</string>
+    <string name="doctor_years_abbreviation_label">yr</string>
+    <string name="doctor_patients_abbreviation_label">ps</string>
 </resources>

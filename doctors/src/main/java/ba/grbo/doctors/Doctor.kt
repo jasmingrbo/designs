@@ -8,8 +8,9 @@ data class Doctor(
     @DrawableRes val pictureResource: Int,
     val specialization: Specialization,
     val hospital: String,
+    val experience: Int,
+    val patients: Int,
+    val description: String,
     val available: Boolean,
-    val rating: Rating,
-) {
-    data class Rating(val value: Double, val raters: Int)
-}
+    val rating: Double,
+)

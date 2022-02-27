@@ -9,7 +9,6 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import ba.grbo.doctors.composables.DoctorsNavHost
-import ba.grbo.doctors.composables.DoctorsScreen
 import ba.grbo.doctors.ui.theme.DoctorsTheme
 
 class DoctorsActivity : ComponentActivity() {

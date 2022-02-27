@@ -1,13 +1,17 @@
-package ba.grbo.doctors.composables
+package ba.grbo.doctors.composables.destinations
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
@@ -16,6 +20,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
@@ -23,6 +28,11 @@ import androidx.compose.ui.unit.dp
 import ba.grbo.doctors.Category
 import ba.grbo.doctors.Doctor
 import ba.grbo.doctors.R
+import ba.grbo.doctors.composables.AppBar
+import ba.grbo.doctors.composables.Categories
+import ba.grbo.doctors.composables.Doctor
+import ba.grbo.doctors.composables.Searcher
+import ba.grbo.doctors.composables.VerticalSpacer
 import ba.grbo.doctors.ui.theme.grayChateau
 
 @Composable
@@ -38,8 +48,23 @@ fun DoctorsScreen(
     Column {
         AppBar(
             modifier = Modifier.padding(start = 12.dp, end = 18.dp, top = 24.dp),
-            onMenuButtonClicked = onMenuButtonClicked,
-            onUserButtonClicked = onUserButtonClicked
+            leadingIcon = {
+                IconButton(onClick = onMenuButtonClicked) {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_menu_burger),
+                        contentDescription = stringResource(R.string.doctors_menu)
+                    )
+                }
+            },
+            trailingIcon = {
+                IconButton(onClick = onUserButtonClicked) {
+                    Image(
+                        modifier = Modifier.size(36.dp),
+                        painter = painterResource(R.drawable.user),
+                        contentDescription = stringResource(R.string.doctors_user)
+                    )
+                }
+            }
         )
         VerticalSpacer(24.dp)
         Headline(modifier = Modifier.padding(horizontal = 24.dp))

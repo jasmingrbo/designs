@@ -25,8 +25,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ba.grbo.doctors.Doctor
+import ba.grbo.doctors.Doctors
 import ba.grbo.doctors.R
-import ba.grbo.doctors.Specialization.HEART
 import ba.grbo.doctors.ui.theme.albescentWhite
 import ba.grbo.doctors.ui.theme.blueRomance
 import ba.grbo.doctors.ui.theme.gorse
@@ -81,7 +81,7 @@ fun Doctor(
                         HorizontalSpacer(4.dp)
                     }
                     Text(
-                        text = "(${doctor.rating.raters})",
+                        text = "(${doctor.rating})",
                         style = MaterialTheme.typography.caption.copy(fontSize = 10.sp),
                         color = silver
                     )
@@ -125,15 +125,7 @@ private fun Star() {
 fun PreviewDoctor() {
     Preview {
         Doctor(
-            doctor = Doctor(
-                id = 1,
-                fullName = "Gilang Segara Bening",
-                pictureResource = R.drawable.gilang_segara_bening,
-                specialization = HEART,
-                hospital = "Persahabatan",
-                available = true,
-                rating = Doctor.Rating(5.0, 1221)
-            ),
+            doctor = Doctors.value.first(),
             onClicked = {},
             onAvailabilityButtonClicked = {}
         )

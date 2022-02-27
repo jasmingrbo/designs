@@ -12,6 +12,7 @@ import ba.grbo.doctors.Doctors
 import ba.grbo.doctors.composables.destinations.Destination.DOCTOR
 import ba.grbo.doctors.composables.destinations.Destination.DOCTORS
 import ba.grbo.doctors.composables.destinations.DoctorScreen
+import ba.grbo.doctors.composables.destinations.DoctorsScreen
 
 @Composable
 fun DoctorsNavHost(
@@ -45,7 +46,11 @@ fun DoctorsNavHost(
             val doctor = Doctors.value.find { doctor -> doctor.id == doctorId }
                 ?: throw IllegalStateException("doctor with the id $doctorId not found")
 
-            DoctorScreen(doctor = doctor)
+            DoctorScreen(
+                doctor = doctor,
+                onBackButtonClicked = { navController.popBackStack() },
+                onBookmarkButtonClicked = { showNotImplementedToast() }
+            )
         }
     }
 }
