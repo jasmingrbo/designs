@@ -1,6 +1,6 @@
 package ba.grbo.doctors
 
-enum class Specialization(val value: String) {
+enum class Specialization(private val value: String) {
     HEART("Heart"),
     DENTAL("Dental"),
     EYE("Eye");
