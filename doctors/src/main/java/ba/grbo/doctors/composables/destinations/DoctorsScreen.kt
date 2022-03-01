@@ -3,13 +3,14 @@ package ba.grbo.doctors.composables.destinations
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
@@ -99,14 +100,16 @@ fun DoctorsScreen(
             }
         }
         VerticalSpacer(12.dp)
-        LazyColumn(modifier = Modifier.padding(horizontal = 24.dp)) {
-            itemsIndexed(items = doctors, key = { _, doctor -> doctor.fullName }) { index, doctor ->
+        LazyColumn(
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+            contentPadding = PaddingValues(start = 24.dp, end = 24.dp, bottom = 24.dp)
+        ) {
+            items(items = doctors, key = { doctor -> doctor.id }) { doctor ->
                 Doctor(
                     doctor = doctor,
                     onClicked = onDoctorClicked,
                     onAvailabilityButtonClicked = onDoctorAvailabilityButtonClicked
                 )
-                VerticalSpacer(if (index != doctors.lastIndex) 16.dp else 24.dp)
             }
         }
     }
