@@ -1,7 +1,10 @@
 package ba.grbo.doctors.composables
 
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -20,20 +23,42 @@ fun DoctorsNavHost(
     navController: NavHostController = rememberNavController(),
     showNotImplementedToast: () -> Unit
 ) {
+
     NavHost(
         modifier = modifier,
         navController = navController,
         startDestination = DOCTORS.route
     ) {
         composable(DOCTORS.route) {
+            val focusManager = LocalFocusManager.current
             DoctorsScreen(
+                modifier = Modifier.pointerInput(Unit) {
+                    detectTapGestures(
+                        onPress = { if (tryAwaitRelease()) focusManager.clearFocus() }
+                    )
+                },
                 doctors = Doctors.value,
                 onDoctorClicked = { doctor -> navController.navigate("${DOCTOR.route}/${doctor.id}") },
-                onDoctorAvailabilityButtonClicked = { showNotImplementedToast() },
-                onMenuButtonClicked = { showNotImplementedToast() },
-                onUserButtonClicked = { showNotImplementedToast() },
-                onCategoryButtonClicked = { showNotImplementedToast() },
-                onViewAllButtonClicked = { showNotImplementedToast() }
+                onDoctorAvailabilityButtonClicked = {
+                    showNotImplementedToast()
+                    focusManager.clearFocus()
+                },
+                onMenuButtonClicked = {
+                    showNotImplementedToast()
+                    focusManager.clearFocus()
+                },
+                onUserButtonClicked = {
+                    showNotImplementedToast()
+                    focusManager.clearFocus()
+                },
+                onCategoryButtonClicked = {
+                    showNotImplementedToast()
+                    focusManager.clearFocus()
+                },
+                onViewAllButtonClicked = {
+                    showNotImplementedToast()
+                    focusManager.clearFocus()
+                }
             )
         }
 

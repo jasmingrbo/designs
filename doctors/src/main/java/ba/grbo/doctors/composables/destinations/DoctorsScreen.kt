@@ -38,6 +38,7 @@ import ba.grbo.doctors.ui.theme.grayChateau
 
 @Composable
 fun DoctorsScreen(
+    modifier: Modifier = Modifier,
     doctors: List<Doctor>,
     onDoctorClicked: (Doctor) -> Unit,
     onDoctorAvailabilityButtonClicked: () -> Unit,
@@ -46,7 +47,7 @@ fun DoctorsScreen(
     onCategoryButtonClicked: (Category) -> Unit,
     onViewAllButtonClicked: () -> Unit
 ) {
-    Column {
+    Column(modifier = modifier) {
         AppBar(
             modifier = Modifier.padding(start = 12.dp, end = 18.dp, top = 24.dp),
             leadingIcon = {
@@ -80,9 +81,7 @@ fun DoctorsScreen(
             onSearchTermChanged = onSearchTermChanged
         )
         VerticalSpacer(24.dp)
-        Categories(
-            onCategoryButtonClicked = onCategoryButtonClicked
-        )
+        Categories(onCategoryButtonClicked = onCategoryButtonClicked)
         VerticalSpacer(12.dp)
         Row(
             modifier = Modifier
