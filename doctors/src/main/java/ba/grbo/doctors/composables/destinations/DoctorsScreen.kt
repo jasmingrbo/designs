@@ -11,14 +11,17 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -35,6 +38,9 @@ import ba.grbo.doctors.composables.Doctor
 import ba.grbo.doctors.composables.Searcher
 import ba.grbo.doctors.composables.VerticalSpacer
 import ba.grbo.doctors.ui.theme.grayChateau
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.filter
 
 @Composable
 fun DoctorsScreen(
@@ -45,7 +51,8 @@ fun DoctorsScreen(
     onMenuButtonClicked: () -> Unit,
     onUserButtonClicked: () -> Unit,
     onCategoryButtonClicked: (Category) -> Unit,
-    onViewAllButtonClicked: () -> Unit
+    onViewAllButtonClicked: () -> Unit,
+    onDoctorsScrolled: () -> Unit
 ) {
     Column(modifier = modifier) {
         AppBar(
@@ -99,7 +106,10 @@ fun DoctorsScreen(
             }
         }
         VerticalSpacer(12.dp)
+        
+        val state = rememberLazyListState()
         LazyColumn(
+            state = state,
             verticalArrangement = Arrangement.spacedBy(16.dp),
             contentPadding = PaddingValues(start = 24.dp, end = 24.dp, bottom = 24.dp)
         ) {
@@ -110,6 +120,12 @@ fun DoctorsScreen(
                     onAvailabilityButtonClicked = onDoctorAvailabilityButtonClicked
                 )
             }
+        }
+        LaunchedEffect(state) {
+            snapshotFlow { state.isScrollInProgress }
+                .distinctUntilChanged()
+                .filter { it }
+                .collect { onDoctorsScrolled() }
         }
     }
 }

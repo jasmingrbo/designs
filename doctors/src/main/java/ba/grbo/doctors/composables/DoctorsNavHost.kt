@@ -58,7 +58,8 @@ fun DoctorsNavHost(
                 onViewAllButtonClicked = {
                     showNotImplementedToast()
                     focusManager.clearFocus()
-                }
+                },
+                onDoctorsScrolled = { focusManager.clearFocus() }
             )
         }
 
