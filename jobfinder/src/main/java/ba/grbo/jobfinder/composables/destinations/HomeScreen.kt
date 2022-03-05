@@ -10,11 +10,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import ba.grbo.jobfinder.BottomNavBarDestination.HOME
 import ba.grbo.jobfinder.composables.BottomNavBar
+import ba.grbo.jobfinder.composables.HomeAppBar
 
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
+    userName: String,
     contentPadding: PaddingValues,
+    onUserButtonClicked: () -> Unit,
     onHomeButtonClicked: () -> Unit,
     onBookmarkButtonClicked: () -> Unit,
     onSettingsButtonClicked: () -> Unit
@@ -25,8 +28,9 @@ fun HomeScreen(
                 .weight(1f)
                 .padding(contentPadding)
         ) {
-
+            HomeAppBar(userName = userName, onUserButtonClicked = onUserButtonClicked)
         }
+
         BottomNavBar(
             modifier = Modifier.height(68.dp),
             currentDestination = HOME,

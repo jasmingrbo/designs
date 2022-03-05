@@ -51,7 +51,9 @@ fun JobFinderNavHost(
             }
 
             HomeScreen(
-                contentPadding = PaddingValues(horizontal = 24.dp),
+                userName = "Gustanto",
+                contentPadding = PaddingValues(start = 24.dp, end = 24.dp, top = 24.dp),
+                onUserButtonClicked = showNotImplementedToast,
                 onHomeButtonClicked = showNotImplementedToast,
                 onBookmarkButtonClicked = showNotImplementedToast,
                 onSettingsButtonClicked = showNotImplementedToast

@@ -27,10 +27,22 @@ val Typography = Typography(
         fontSize = 18.sp,
         lineHeight = 18.sp
     ),
+    h5 = TextStyle(
+        fontFamily = inter,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 20.sp,
+        lineHeight = 18.sp
+    ),
     h6 = TextStyle(
         fontFamily = inter,
         fontWeight = FontWeight.Medium,
         fontSize = 19.sp,
         lineHeight = 31.sp
+    ),
+    subtitle2 = TextStyle(
+        fontFamily = inter,
+        fontWeight = FontWeight.Normal,
+        fontSize = 14.sp,
+        lineHeight = 18.sp
     )
 )
