@@ -7,7 +7,8 @@ import androidx.compose.runtime.Composable
 private val LightColorPalette = lightColors(
     primary = eastBay,
     secondary = mineShaft,
-    background = wildSand
+    background = wildSand,
+    onPrimary = white
 )
 
 @Composable
