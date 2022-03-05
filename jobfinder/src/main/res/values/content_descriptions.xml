@@ -4,4 +4,5 @@
     <string name="common_bookmark_icon">Bookmarked</string>
     <string name="common_settings_icon">Settings</string>
     <string name="common_user_photo">User photo</string>
+    <string name="home_reset_button">Reset input</string>
 </resources>

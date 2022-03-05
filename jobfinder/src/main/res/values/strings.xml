@@ -5,4 +5,5 @@
     <string name="start_message_second">Great Jobs</string>
     <string name="home_user_greeting">Hello</string>
     <string name="home_find_job_label">Find Your Great Job</string>
+    <string name="home_searcher_placeholder">Search a Job</string>
 </resources>
