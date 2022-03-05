@@ -10,10 +10,12 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import ba.grbo.jobfinder.JobCategory
 import ba.grbo.jobfinder.composables.destinations.Destination.HOME
 import ba.grbo.jobfinder.composables.destinations.Destination.START
 import ba.grbo.jobfinder.composables.destinations.HomeScreen
 import ba.grbo.jobfinder.composables.destinations.StartScreen
+import ba.grbo.jobfinder.popularJobs
 import ba.grbo.jobfinder.ui.theme.white
 import ba.grbo.jobfinder.ui.theme.wildSand
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -52,7 +54,12 @@ fun JobFinderNavHost(
 
             HomeScreen(
                 userName = "Gustanto",
-                contentPadding = PaddingValues(start = 24.dp, end = 24.dp, top = 24.dp),
+                contentPadding = PaddingValues(top = 24.dp),
+                popularJobs = popularJobs,
+                jobCategories = JobCategory.values().map(JobCategory::value),
+                onJobClicked = { showNotImplementedToast() },
+                onBookmarkJobButtonClicked = { showNotImplementedToast() },
+                onJobCategoryClicked = { showNotImplementedToast() },
                 onFilterButtonClicked = showNotImplementedToast,
                 onUserButtonClicked = showNotImplementedToast,
                 onHomeButtonClicked = showNotImplementedToast,

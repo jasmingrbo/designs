@@ -1,9 +1,19 @@
 <resources>
     <string name="app_name">Job Finder</string>
+    <string name="common_full_time_label">Full Time</string>
+    <string name="common_part_time_label">Part Time</string>
+    <string name="common_remote_label">Remote</string>
+    <string name="common_office_label">Office</string>
+    <string name="common_entry_label">Entry</string>
+    <string name="common_junior_label">Junior</string>
+    <string name="common_medior_label">Medior</string>
+    <string name="common_senior_label">Senior</string>
     <string name="start_get_started_button_text">Get Started</string>
     <string name="start_message_first">Join Us &amp; Explore Thousand of </string>
     <string name="start_message_second">Great Jobs</string>
     <string name="home_user_greeting">Hello</string>
     <string name="home_find_job_label">Find Your Great Job</string>
     <string name="home_searcher_placeholder">Search a Job</string>
+    <string name="home_most_popular_label">Most Popular</string>
+    <string name="home_hourly_wage_formatter">$%1$d - $%2$d / Hr</string>
 </resources>

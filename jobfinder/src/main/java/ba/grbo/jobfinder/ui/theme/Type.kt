@@ -16,10 +16,11 @@ val inter = FontFamily(
 )
 
 val Typography = Typography(
-    body1 = TextStyle(
-        fontFamily = FontFamily.Default,
+    body2 = TextStyle(
+        fontFamily = inter,
         fontWeight = FontWeight.Normal,
-        fontSize = 16.sp
+        fontSize = 11.sp,
+        lineHeight = 14.sp
     ),
     button = TextStyle(
         fontFamily = inter,

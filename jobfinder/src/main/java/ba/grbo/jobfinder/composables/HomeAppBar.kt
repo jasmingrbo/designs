@@ -65,7 +65,7 @@ fun HomeAppBar(
         Image(
             modifier = Modifier
                 .align(Alignment.Top)
-                .size(40.dp)
+                .size(44.dp)
                 .clip(CircleShape)
                 .clickable(
                 onClick = onUserButtonClicked,
