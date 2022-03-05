@@ -49,12 +49,14 @@ fun HomeScreen(
 
             Row(
                 modifier = Modifier
-                    .height(44.dp)
+                    .height(48.dp)
                     .fillMaxWidth()
             ) {
                 val (searchTerm, onSearchTermChanged) = remember { mutableStateOf("") }
                 Searcher(
-                    modifier = Modifier.weight(1f),
+                    modifier = Modifier
+                        .fillMaxHeight()
+                        .weight(1f),
                     searchTerm = searchTerm,
                     onSearchTermChanged = onSearchTermChanged
                 )
