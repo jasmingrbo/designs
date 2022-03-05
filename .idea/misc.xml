@@ -26,6 +26,9 @@
         <entry key="doctors/src/main/res/drawable/ic_stethoscope.xml" value="0.166" />
         <entry key="doctors/src/main/res/drawable/ic_syringe.xml" value="0.179" />
         <entry key="doctors/src/main/res/drawable/ic_tooth.xml" value="0.179" />
+        <entry key="jobfinder/src/main/res/drawable/ic_bookmark_home.xml" value="0.1465" />
+        <entry key="jobfinder/src/main/res/drawable/ic_home.xml" value="0.1465" />
+        <entry key="jobfinder/src/main/res/drawable/ic_settings.xml" value="0.1465" />
       </map>
     </option>
   </component>
