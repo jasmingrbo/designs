@@ -43,11 +43,12 @@ fun Chip(
     ) {
         Text(
             modifier = Modifier
-                .clickable(
-                    enabled = onClicked != null,
-                    onClick = { onClicked?.invoke(text) },
-                    interactionSource = remember { MutableInteractionSource() },
-                    indication = rememberRipple()
+                .then(
+                    if (onClicked != null) Modifier.clickable(
+                        onClick = { onClicked(text) },
+                        interactionSource = remember { MutableInteractionSource() },
+                        indication = rememberRipple()
+                    ) else Modifier
                 )
                 .padding(contentPadding),
             text = text,
