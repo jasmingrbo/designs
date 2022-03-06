@@ -70,17 +70,11 @@ fun PopularJobCard(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                Surface(
+                EmployerLogo(
                     modifier = Modifier.size(44.dp),
-                    shape = MaterialTheme.shapes.medium,
-                    color = job.logoBackgroundColor
-                ) {
-                    Image(
-                        modifier = Modifier.align(Alignment.CenterVertically),
-                        painter = painterResource(job.employerLogoResource),
-                        contentDescription = stringResource(R.string.home_employer_logo)
-                    )
-                }
+                    backgroundColor = job.logoBackgroundColor,
+                    logoResource = job.employerLogoResource
+                )
 
                 Text(
                     text = stringResource(
@@ -147,15 +141,7 @@ fun PopularJobCard(
                     contentPadding = PaddingValues(horizontal = 8.dp)
                 )
                 HorizontalSpacer(36.dp)
-                Icon(
-                    modifier = Modifier
-                        .clickable(
-                            onClick = { onBookmarkJobButtonClicked(job.id) },
-                            role = Role.Image
-                        ),
-                    painter = painterResource(R.drawable.ic_bookmark_job),
-                    contentDescription = stringResource(R.string.home_bookmark_job)
-                )
+                BookmarkIcon(onClicked = { onBookmarkJobButtonClicked(job.id) })
                 HorizontalSpacer(12.dp)
             }
         }

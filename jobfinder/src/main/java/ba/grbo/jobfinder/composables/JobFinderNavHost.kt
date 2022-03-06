@@ -15,6 +15,7 @@ import ba.grbo.jobfinder.composables.destinations.Destination.HOME
 import ba.grbo.jobfinder.composables.destinations.Destination.START
 import ba.grbo.jobfinder.composables.destinations.HomeScreen
 import ba.grbo.jobfinder.composables.destinations.StartScreen
+import ba.grbo.jobfinder.jobs
 import ba.grbo.jobfinder.popularJobs
 import ba.grbo.jobfinder.ui.theme.white
 import ba.grbo.jobfinder.ui.theme.wildSand
@@ -56,6 +57,7 @@ fun JobFinderNavHost(
                 userName = "Gustanto",
                 contentPadding = PaddingValues(top = 24.dp),
                 popularJobs = popularJobs,
+                jobs = jobs,
                 jobCategories = JobCategory.values().map(JobCategory::value),
                 onJobClicked = { showNotImplementedToast() },
                 onBookmarkJobButtonClicked = { showNotImplementedToast() },

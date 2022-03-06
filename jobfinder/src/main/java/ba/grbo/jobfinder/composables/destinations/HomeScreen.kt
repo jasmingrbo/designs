@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Button
@@ -31,13 +32,15 @@ import ba.grbo.jobfinder.BottomNavBarDestination.HOME
 import ba.grbo.jobfinder.Job
 import ba.grbo.jobfinder.JobCategory
 import ba.grbo.jobfinder.R
-import ba.grbo.jobfinder.composables.Chip
 import ba.grbo.jobfinder.composables.BottomNavBar
+import ba.grbo.jobfinder.composables.Chip
 import ba.grbo.jobfinder.composables.HomeAppBar
 import ba.grbo.jobfinder.composables.HorizontalSpacer
+import ba.grbo.jobfinder.composables.JobCard
 import ba.grbo.jobfinder.composables.PopularJobCard
 import ba.grbo.jobfinder.composables.Searcher
 import ba.grbo.jobfinder.composables.VerticalSpacer
+import ba.grbo.jobfinder.composables.lazyGrid
 import ba.grbo.jobfinder.ui.theme.alto
 import ba.grbo.jobfinder.ui.theme.concrete
 import ba.grbo.jobfinder.ui.theme.gray
@@ -51,6 +54,7 @@ fun HomeScreen(
     contentPadding: PaddingValues,
     popularJobs: List<Job>,
     jobCategories: List<String>,
+    jobs: List<Job>,
     onUserButtonClicked: () -> Unit,
     onFilterButtonClicked: () -> Unit,
     onJobClicked: (Int) -> Unit,
@@ -153,6 +157,21 @@ fun HomeScreen(
                         onClicked = { jobCategory ->
                             onJobCategoryClicked(JobCategory.fromValue(jobCategory))
                         }
+                    )
+                }
+            }
+            VerticalSpacer(16.dp)
+            LazyColumn {
+                lazyGrid(
+                    items = jobs,
+                    inBetweenElementsPadding = 16.dp,
+                    contentPadding = PaddingValues(start = 24.dp, end = 24.dp, bottom = 24.dp)
+                ) { job, modifier ->
+                    JobCard(
+                        modifier = modifier,
+                        job = job,
+                        onClicked = onJobClicked,
+                        onBookmarkJobButtonClicked = onBookmarkJobButtonClicked
                     )
                 }
             }
