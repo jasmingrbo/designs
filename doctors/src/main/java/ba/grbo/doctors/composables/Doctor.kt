@@ -40,12 +40,12 @@ import kotlin.text.Typography.bullet
 fun Doctor(
     modifier: Modifier = Modifier,
     doctor: Doctor,
-    onClicked: (Doctor) -> Unit,
+    onClicked: (Int) -> Unit,
     onAvailabilityButtonClicked: () -> Unit
 ) {
     Surface(
         shape = MaterialTheme.shapes.medium,
-        onClick = { onClicked(doctor) }
+        onClick = { onClicked(doctor.id) }
     ) {
         Row(
             modifier = modifier.fillMaxWidth(),

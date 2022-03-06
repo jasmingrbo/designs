@@ -38,7 +38,7 @@ fun DoctorsNavHost(
                     )
                 },
                 doctors = Doctors.value,
-                onDoctorClicked = { doctor -> navController.navigate("${DOCTOR.route}/${doctor.id}") },
+                onDoctorClicked = { doctorId -> navController.navigate("${DOCTOR.route}/$doctorId") },
                 onDoctorAvailabilityButtonClicked = {
                     showNotImplementedToast()
                     focusManager.clearFocus()

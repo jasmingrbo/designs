@@ -51,7 +51,7 @@ import kotlinx.coroutines.flow.filter
 fun DoctorsScreen(
     modifier: Modifier = Modifier,
     doctors: List<Doctor>,
-    onDoctorClicked: (Doctor) -> Unit,
+    onDoctorClicked: (Int) -> Unit,
     onDoctorAvailabilityButtonClicked: () -> Unit,
     onMenuButtonClicked: () -> Unit,
     onUserButtonClicked: () -> Unit,
