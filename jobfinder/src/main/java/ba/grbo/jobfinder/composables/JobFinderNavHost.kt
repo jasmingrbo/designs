@@ -1,10 +1,11 @@
 package ba.grbo.jobfinder.composables
 
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
@@ -23,6 +24,7 @@ import ba.grbo.jobfinder.jobs
 import ba.grbo.jobfinder.popularJobs
 import ba.grbo.jobfinder.ui.theme.white
 import ba.grbo.jobfinder.ui.theme.wildSand
+import com.google.accompanist.insets.LocalWindowInsets
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 @Composable
@@ -31,17 +33,27 @@ fun JobFinderNavHost(
     navController: NavHostController = rememberNavController(),
     showNotImplementedToast: () -> Unit
 ) {
+    val systemUiController = rememberSystemUiController()
+    val inset = LocalWindowInsets.current
+    val statusBarHeight = with(LocalDensity.current) { inset.statusBars.top.toDp() }
+    val navigationBarHeight = with(LocalDensity.current) { inset.navigationBars.bottom.toDp() }
     NavHost(
         modifier = modifier,
         navController = navController,
         startDestination = START.route
     ) {
         composable(START.route) {
-            val systemUiController = rememberSystemUiController()
-            SideEffect { systemUiController.setSystemBarsColor(wildSand) }
+            SideEffect {
+                systemUiController.setSystemBarsColor(wildSand)
+            }
 
             StartScreen(
-                modifier = Modifier.padding(horizontal = 20.dp),
+                modifier = Modifier.padding(
+                    start = 20.dp,
+                    end = 20.dp,
+                    top = statusBarHeight,
+                    bottom = navigationBarHeight
+                ),
                 onGetStartedButtonClicked = {
                     navController.navigate(HOME.route) {
                         popUpTo(START.route) { inclusive = true }
@@ -51,15 +63,17 @@ fun JobFinderNavHost(
         }
 
         composable(HOME.route) {
-            val systemUiController = rememberSystemUiController()
             SideEffect {
                 systemUiController.setStatusBarColor(wildSand)
                 systemUiController.setNavigationBarColor(white)
             }
 
             HomeScreen(
+                modifier = Modifier.padding(
+                    top = statusBarHeight + 24.dp,
+                    bottom = navigationBarHeight
+                ),
                 userName = "Gustanto",
-                contentPadding = PaddingValues(top = 24.dp),
                 popularJobs = popularJobs,
                 jobs = jobs,
                 jobCategories = JobCategory.values().map(JobCategory::value),
@@ -83,7 +97,11 @@ fun JobFinderNavHost(
             val job = (popularJobs + jobs).find { job -> job.id == jobId }
                 ?: throw IllegalStateException("job with the id $jobId not found")
 
-            JobScreen(job = job)
+            SideEffect { systemUiController.setStatusBarColor(Color.Transparent) }
+            JobScreen(
+                modifier = Modifier.padding(bottom = navigationBarHeight),
+                job = job
+            )
         }
     }
 }

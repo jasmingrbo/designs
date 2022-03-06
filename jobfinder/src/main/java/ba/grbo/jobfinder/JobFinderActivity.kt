@@ -8,19 +8,24 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
+import androidx.core.view.WindowCompat
 import ba.grbo.jobfinder.composables.JobFinderNavHost
 import ba.grbo.jobfinder.ui.theme.JobFinderTheme
+import com.google.accompanist.insets.ProvideWindowInsets
 
 class JobFinderActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         setContent {
             JobFinderTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    JobFinderNavHost(showNotImplementedToast = ::showNotImplementedToast)
+                ProvideWindowInsets {
+                    Surface(
+                        modifier = Modifier.fillMaxSize(),
+                        color = MaterialTheme.colors.background
+                    ) {
+                        JobFinderNavHost(showNotImplementedToast = ::showNotImplementedToast)
+                    }
                 }
             }
         }

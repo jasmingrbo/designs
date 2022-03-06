@@ -51,7 +51,6 @@ import ba.grbo.jobfinder.ui.theme.mineShaft
 fun HomeScreen(
     modifier: Modifier = Modifier,
     userName: String,
-    contentPadding: PaddingValues,
     popularJobs: List<Job>,
     jobCategories: List<String>,
     jobs: List<Job>,
@@ -65,11 +64,7 @@ fun HomeScreen(
     onSettingsButtonClicked: () -> Unit
 ) {
     Column(modifier = modifier.fillMaxSize()) {
-        Column(
-            modifier = modifier
-                .weight(1f)
-                .padding(contentPadding)
-        ) {
+        Column(modifier = Modifier.weight(1f)) {
             HomeAppBar(
                 modifier = Modifier.padding(horizontal = 24.dp),
                 userName = userName,
