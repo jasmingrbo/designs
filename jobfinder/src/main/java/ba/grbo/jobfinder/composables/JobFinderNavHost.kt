@@ -37,15 +37,14 @@ fun JobFinderNavHost(
     val inset = LocalWindowInsets.current
     val statusBarHeight = with(LocalDensity.current) { inset.statusBars.top.toDp() }
     val navigationBarHeight = with(LocalDensity.current) { inset.navigationBars.bottom.toDp() }
+    
     NavHost(
         modifier = modifier,
         navController = navController,
         startDestination = START.route
     ) {
         composable(START.route) {
-            SideEffect {
-                systemUiController.setSystemBarsColor(wildSand)
-            }
+            SideEffect { systemUiController.setSystemBarsColor(wildSand) }
 
             StartScreen(
                 modifier = Modifier.padding(

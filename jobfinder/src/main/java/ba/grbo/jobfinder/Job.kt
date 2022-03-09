@@ -27,6 +27,7 @@ data class Job(
     val bookmarked: Boolean,
     val logoBackgroundColor: Color,
     @DrawableRes val employerLogoResource: Int,
+    @DrawableRes val jobImageResource: Int = R.drawable.job
 )
 
 enum class EmploymentType {
