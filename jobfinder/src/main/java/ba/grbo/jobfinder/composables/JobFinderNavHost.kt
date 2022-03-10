@@ -1,11 +1,14 @@
 package ba.grbo.jobfinder.composables
 
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
@@ -37,7 +40,7 @@ fun JobFinderNavHost(
     val inset = LocalWindowInsets.current
     val statusBarHeight = with(LocalDensity.current) { inset.statusBars.top.toDp() }
     val navigationBarHeight = with(LocalDensity.current) { inset.navigationBars.bottom.toDp() }
-    
+
     NavHost(
         modifier = modifier,
         navController = navController,
@@ -67,23 +70,54 @@ fun JobFinderNavHost(
                 systemUiController.setNavigationBarColor(white)
             }
 
+            val focusManager = LocalFocusManager.current
             HomeScreen(
-                modifier = Modifier.padding(
-                    top = statusBarHeight + 24.dp,
-                    bottom = navigationBarHeight
-                ),
+                modifier = Modifier
+                    .pointerInput(Unit) {
+                        detectTapGestures(
+                            onPress = { if (tryAwaitRelease()) focusManager.clearFocus() }
+                        )
+                    }
+                    .padding(
+                        top = statusBarHeight + 24.dp,
+                        bottom = navigationBarHeight
+                    ),
                 userName = "Gustanto",
                 popularJobs = popularJobs,
                 jobs = jobs,
                 jobCategories = JobCategory.values().map(JobCategory::value),
-                onJobClicked = { jobId -> navController.navigate("${JOB.route}/$jobId") },
-                onBookmarkJobButtonClicked = { showNotImplementedToast() },
-                onJobCategoryClicked = { showNotImplementedToast() },
-                onFilterButtonClicked = showNotImplementedToast,
-                onUserButtonClicked = showNotImplementedToast,
-                onHomeButtonClicked = showNotImplementedToast,
-                onBookmarkButtonClicked = showNotImplementedToast,
-                onSettingsButtonClicked = showNotImplementedToast
+                onJobClicked = { jobId ->
+                    focusManager.clearFocus()
+                    navController.navigate("${JOB.route}/$jobId")
+                },
+                onBookmarkJobButtonClicked = {
+                    showNotImplementedToast()
+                    focusManager.clearFocus()
+                },
+                onJobCategoryClicked = {
+                    showNotImplementedToast()
+                    focusManager.clearFocus()
+                },
+                onFilterButtonClicked = {
+                    showNotImplementedToast()
+                    focusManager.clearFocus()
+                },
+                onUserButtonClicked = {
+                    showNotImplementedToast()
+                    focusManager.clearFocus()
+                },
+                onHomeButtonClicked = {
+                    showNotImplementedToast()
+                    focusManager.clearFocus()
+                },
+                onBookmarkButtonClicked = {
+                    showNotImplementedToast()
+                    focusManager.clearFocus()
+                },
+                onSettingsButtonClicked = {
+                    showNotImplementedToast()
+                    focusManager.clearFocus()
+                }
             )
         }
 
