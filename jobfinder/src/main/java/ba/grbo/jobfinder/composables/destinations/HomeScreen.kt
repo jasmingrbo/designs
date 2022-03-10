@@ -11,16 +11,20 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -46,6 +50,9 @@ import ba.grbo.jobfinder.ui.theme.concrete
 import ba.grbo.jobfinder.ui.theme.gray
 import ba.grbo.jobfinder.ui.theme.inter
 import ba.grbo.jobfinder.ui.theme.mineShaft
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.filter
 
 @Composable
 fun HomeScreen(
@@ -61,7 +68,8 @@ fun HomeScreen(
     onJobCategoryClicked: (JobCategory) -> Unit,
     onHomeButtonClicked: () -> Unit,
     onBookmarkButtonClicked: () -> Unit,
-    onSettingsButtonClicked: () -> Unit
+    onSettingsButtonClicked: () -> Unit,
+    onListScrolled: () -> Unit
 ) {
     Column(modifier = modifier.fillMaxSize()) {
         Column(modifier = Modifier.weight(1f)) {
@@ -114,7 +122,10 @@ fun HomeScreen(
                 color = mineShaft
             )
             VerticalSpacer(12.dp)
+
+            val popularJobsState = rememberLazyListState()
             LazyRow(
+                state = popularJobsState,
                 contentPadding = PaddingValues(horizontal = 24.dp),
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
@@ -131,7 +142,10 @@ fun HomeScreen(
                 }
             }
             VerticalSpacer(20.dp)
+
+            val jobCategoriesState = rememberLazyListState()
             LazyRow(
+                state = jobCategoriesState,
                 contentPadding = PaddingValues(horizontal = 24.dp),
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
@@ -156,7 +170,9 @@ fun HomeScreen(
                 }
             }
             VerticalSpacer(16.dp)
-            LazyColumn {
+
+            val jobsState = rememberLazyListState()
+            LazyColumn(state = jobsState) {
                 lazyGrid(
                     items = jobs,
                     inBetweenElementsPadding = 16.dp,
@@ -170,6 +186,11 @@ fun HomeScreen(
                     )
                 }
             }
+
+            CustomLaunchedEffect(
+                states = listOf(popularJobsState, jobCategoriesState, jobsState),
+                action = onListScrolled
+            )
         }
 
         BottomNavBar(
@@ -179,5 +200,20 @@ fun HomeScreen(
             onBookmarkButtonClicked = onBookmarkButtonClicked,
             onSettingsButtonClicked = onSettingsButtonClicked
         )
+    }
+}
+
+@Composable
+fun CustomLaunchedEffect(
+    states: List<LazyListState>,
+    action: () -> Unit
+) {
+    for (state in states) {
+        LaunchedEffect(key1 = state) {
+            snapshotFlow { state.isScrollInProgress }
+                .distinctUntilChanged()
+                .filter { it }
+                .collect { action() }
+        }
     }
 }

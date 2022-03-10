@@ -117,7 +117,8 @@ fun JobFinderNavHost(
                 onSettingsButtonClicked = {
                     showNotImplementedToast()
                     focusManager.clearFocus()
-                }
+                },
+                onListScrolled = { focusManager.clearFocus() }
             )
         }
 
