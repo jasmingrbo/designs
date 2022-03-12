@@ -134,7 +134,8 @@ fun JobFinderNavHost(
             SideEffect { systemUiController.setStatusBarColor(Color.Transparent) }
             JobScreen(
                 modifier = Modifier.padding(bottom = navigationBarHeight),
-                job = job
+                job = job,
+                onBackButtonClicked = { navController.popBackStack() }
             )
         }
     }

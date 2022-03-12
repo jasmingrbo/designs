@@ -16,6 +16,7 @@
         <entry key="app/src/main/res/drawable/ic_menu_burger.xml" value="0.166" />
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.166" />
         <entry key="app/src/main/res/drawable/ic_syringe.xml" value="0.166" />
+        <entry key="doctors/src/main/res/drawable/ic_arrow_back.xml" value="0.1475" />
         <entry key="doctors/src/main/res/drawable/ic_care.xml" value="0.179" />
         <entry key="doctors/src/main/res/drawable/ic_clinic.xml" value="0.179" />
         <entry key="doctors/src/main/res/drawable/ic_comment.xml" value="0.179" />
@@ -28,6 +29,7 @@
         <entry key="doctors/src/main/res/drawable/ic_stethoscope.xml" value="0.166" />
         <entry key="doctors/src/main/res/drawable/ic_syringe.xml" value="0.179" />
         <entry key="doctors/src/main/res/drawable/ic_tooth.xml" value="0.179" />
+        <entry key="jobfinder/src/main/res/drawable/ic_arrow_back.xml" value="0.1475" />
         <entry key="jobfinder/src/main/res/drawable/ic_bookmark_home.xml" value="0.1465" />
         <entry key="jobfinder/src/main/res/drawable/ic_filter.xml" value="0.1465" />
         <entry key="jobfinder/src/main/res/drawable/ic_home.xml" value="0.1465" />

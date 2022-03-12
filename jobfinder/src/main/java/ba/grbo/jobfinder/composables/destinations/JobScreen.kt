@@ -2,6 +2,7 @@ package ba.grbo.jobfinder.composables.destinations
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -11,16 +12,20 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.Layout
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ba.grbo.jobfinder.EmploymentType
@@ -35,21 +40,64 @@ import ba.grbo.jobfinder.ui.theme.eastBay
 import ba.grbo.jobfinder.ui.theme.inter
 import ba.grbo.jobfinder.ui.theme.white
 import ba.grbo.jobfinder.ui.theme.wildSand
+import com.google.accompanist.insets.LocalWindowInsets
 
 @Composable
 fun JobScreen(
     modifier: Modifier = Modifier,
-    job: Job
+    job: Job,
+    onBackButtonClicked: () -> Unit
 ) {
     Layout(
         modifier = modifier,
         content = {
-            Image(
-                modifier = Modifier.fillMaxWidth(),
-                painter = painterResource(job.jobImageResource),
-                contentDescription = null,
-                contentScale = ContentScale.FillWidth
-            )
+            Box(modifier = Modifier.fillMaxWidth()) {
+                Image(
+                    modifier = Modifier.fillMaxWidth(),
+                    painter = painterResource(job.jobImageResource),
+                    contentDescription = null,
+                    contentScale = ContentScale.FillWidth
+                )
+
+                val inset = LocalWindowInsets.current
+                val statusBarHeight = with(LocalDensity.current) { inset.statusBars.top.toDp() }
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = statusBarHeight + 4.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Box(
+                        modifier = Modifier.fillMaxWidth(),
+                        contentAlignment = Alignment.CenterStart
+                    ) {
+                        IconButton(
+                            modifier = Modifier.padding(start = 4.dp),
+                            onClick = onBackButtonClicked
+                        ) {
+                            Icon(
+                                painter = painterResource(R.drawable.ic_arrow_back),
+                                contentDescription = stringResource(R.string.job_back_arrow),
+                                tint = white
+                            )
+                        }
+
+                        Text(
+                            modifier = Modifier.fillMaxWidth(),
+                            text = stringResource(R.string.job_job_detail),
+                            textAlign = TextAlign.Center,
+                            color = white,
+                            style = TextStyle(
+                                fontFamily = inter,
+                                fontWeight = FontWeight.Medium,
+                                fontSize = 14.sp,
+                                lineHeight = 18.sp
+                            )
+                        )
+
+                    }
+                }
+            }
 
             Card(
                 modifier = Modifier.fillMaxSize(),
