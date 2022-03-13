@@ -1,23 +1,30 @@
 package ba.grbo.jobfinder.composables.destinations
 
+import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.platform.LocalDensity
@@ -32,21 +39,27 @@ import ba.grbo.jobfinder.EmploymentType
 import ba.grbo.jobfinder.Job
 import ba.grbo.jobfinder.R
 import ba.grbo.jobfinder.Seniority
+import ba.grbo.jobfinder.Tab
 import ba.grbo.jobfinder.composables.Chip
 import ba.grbo.jobfinder.composables.EmployerLogo
 import ba.grbo.jobfinder.composables.HorizontalSpacer
 import ba.grbo.jobfinder.composables.VerticalSpacer
 import ba.grbo.jobfinder.ui.theme.eastBay
+import ba.grbo.jobfinder.ui.theme.gallery
+import ba.grbo.jobfinder.ui.theme.gray
 import ba.grbo.jobfinder.ui.theme.inter
 import ba.grbo.jobfinder.ui.theme.white
 import ba.grbo.jobfinder.ui.theme.wildSand
 import com.google.accompanist.insets.LocalWindowInsets
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun JobScreen(
     modifier: Modifier = Modifier,
     job: Job,
-    onBackButtonClicked: () -> Unit
+    selectedTab: Tab,
+    onBackButtonClicked: () -> Unit,
+    onTabClicked: (Tab) -> Unit
 ) {
     Layout(
         modifier = modifier,
@@ -81,7 +94,6 @@ fun JobScreen(
                                 tint = white
                             )
                         }
-
                         Text(
                             modifier = Modifier.fillMaxWidth(),
                             text = stringResource(R.string.job_job_detail),
@@ -94,7 +106,6 @@ fun JobScreen(
                                 lineHeight = 18.sp
                             )
                         )
-
                     }
                 }
             }
@@ -184,6 +195,34 @@ fun JobScreen(
                             }
                         }
                     }
+                    VerticalSpacer(20.dp)
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(48.dp)
+                            .background(gallery, MaterialTheme.shapes.medium)
+                            .padding(8.dp)
+                    ) {
+                        TabCard(
+                            modifier = Modifier
+                                .weight(1f)
+                                .fillMaxHeight(),
+                            tab = Tab.DESCRIPTION,
+                            selectedTab = selectedTab,
+                            textResource = R.string.job_description,
+                            onTabClicked = { onTabClicked(Tab.DESCRIPTION) }
+                        )
+                        HorizontalSpacer(8.dp)
+                        TabCard(
+                            modifier = Modifier
+                                .weight(1f)
+                                .fillMaxHeight(),
+                            tab = Tab.COMPANY,
+                            selectedTab = selectedTab,
+                            textResource = R.string.job_company,
+                            onTabClicked = { onTabClicked(Tab.COMPANY) }
+                        )
+                    }
                 }
             }
         }
@@ -200,6 +239,37 @@ fun JobScreen(
             jobInfo.placeRelative(
                 x = 0,
                 y = imageWithAppBar.height - imageWithAppBarTenthHeight
+            )
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterialApi::class)
+@Composable
+private fun TabCard(
+    modifier: Modifier = Modifier,
+    tab: Tab,
+    selectedTab: Tab,
+    @StringRes textResource: Int,
+    onTabClicked: (Tab) -> Unit
+) {
+    Card(
+        modifier = modifier,
+        shape = MaterialTheme.shapes.medium,
+        backgroundColor = if (selectedTab == tab) white else Color.Transparent,
+        contentColor = if (selectedTab == tab) eastBay else gray,
+        elevation = if (selectedTab == tab) 4.dp else 0.dp,
+        onClick = { onTabClicked(tab) }
+    ) {
+        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+            Text(
+                text = stringResource(textResource),
+                style = TextStyle(
+                    fontFamily = inter,
+                    fontWeight = FontWeight.SemiBold,
+                    fontSize = 13.sp,
+                    lineHeight = 16.sp
+                )
             )
         }
     }

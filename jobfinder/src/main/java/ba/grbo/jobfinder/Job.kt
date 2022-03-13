@@ -74,7 +74,7 @@ val popularJobs = listOf(
 
 val jobs = listOf(
     Job(
-        id = 1,
+        id = 3,
         title = "FE Developer",
         employer = "Google",
         location = "Jakarta",
@@ -87,7 +87,7 @@ val jobs = listOf(
         employerLogoResource = R.drawable.google
     ),
     Job(
-        id = 2,
+        id = 4,
         title = "Finance",
         employer = "Facebook",
         location = "Jakarta",
@@ -100,7 +100,7 @@ val jobs = listOf(
         employerLogoResource = R.drawable.facebook
     ),
     Job(
-        id = 3,
+        id = 5,
         title = "Graphic Designer",
         employer = "Bukalapak",
         location = "Jakarta",
@@ -113,7 +113,7 @@ val jobs = listOf(
         employerLogoResource = R.drawable.bukalapak
     ),
     Job(
-        id = 4,
+        id = 6,
         title = "UX Writer",
         employer = "Gojek",
         location = "Jakarta",
@@ -126,7 +126,7 @@ val jobs = listOf(
         employerLogoResource = R.drawable.gojek
     ),
     Job(
-        id = 5,
+        id = 7,
         title = "Swift Dev",
         employer = "Apple",
         location = "Jakarta",
@@ -139,7 +139,7 @@ val jobs = listOf(
         employerLogoResource = R.drawable.apple
     ),
     Job(
-        id = 6,
+        id = 8,
         title = "FE Dev",
         employer = "Twitter",
         location = "Jakarta",

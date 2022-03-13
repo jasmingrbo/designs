@@ -18,4 +18,6 @@
     <string name="home_hourly_wage_formatter">$%1$d - $%2$d / Hr</string>
     <string name="job_back_arrow">Back arrow</string>
     <string name="job_job_detail">Job Detail</string>
+    <string name="job_description">Description</string>
+    <string name="job_company">Company</string>
 </resources>

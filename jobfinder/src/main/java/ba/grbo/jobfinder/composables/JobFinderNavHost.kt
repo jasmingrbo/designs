@@ -17,6 +17,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import ba.grbo.jobfinder.JobCategory
+import ba.grbo.jobfinder.Tab
 import ba.grbo.jobfinder.composables.destinations.Destination.HOME
 import ba.grbo.jobfinder.composables.destinations.Destination.JOB
 import ba.grbo.jobfinder.composables.destinations.Destination.START
@@ -135,7 +136,9 @@ fun JobFinderNavHost(
             JobScreen(
                 modifier = Modifier.padding(bottom = navigationBarHeight),
                 job = job,
-                onBackButtonClicked = { navController.popBackStack() }
+                onBackButtonClicked = { navController.popBackStack() },
+                selectedTab = Tab.DESCRIPTION,
+                onTabClicked = { showNotImplementedToast() }
             )
         }
     }
