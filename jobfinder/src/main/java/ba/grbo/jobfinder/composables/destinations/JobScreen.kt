@@ -30,11 +30,11 @@ import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.ParagraphStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextIndent
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -268,13 +268,14 @@ fun JobScreen(
                         fontFamily = inter,
                         fontWeight = FontWeight.Normal,
                         fontSize = 12.sp,
-                        lineHeight = 15.sp
+                        lineHeight = 15.sp,
+                        textIndent = TextIndent(restLine = 16.sp)
                     )
                     val text = buildAnnotatedString {
                         for (requirement in job.requirements) {
                             withStyle(style.toParagraphStyle()) {
                                 append(bullet)
-                                append(" ")
+                                append("\t\t")
                                 append(requirement)
                             }
                         }
