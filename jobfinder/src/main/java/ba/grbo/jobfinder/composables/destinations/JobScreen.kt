@@ -48,6 +48,7 @@ import ba.grbo.jobfinder.ui.theme.eastBay
 import ba.grbo.jobfinder.ui.theme.gallery
 import ba.grbo.jobfinder.ui.theme.gray
 import ba.grbo.jobfinder.ui.theme.inter
+import ba.grbo.jobfinder.ui.theme.mineShaft
 import ba.grbo.jobfinder.ui.theme.white
 import ba.grbo.jobfinder.ui.theme.wildSand
 import com.google.accompanist.insets.LocalWindowInsets
@@ -209,7 +210,7 @@ fun JobScreen(
                                 .fillMaxHeight(),
                             tab = Tab.DESCRIPTION,
                             selectedTab = selectedTab,
-                            textResource = R.string.job_description,
+                            textResource = R.string.job_description_tab,
                             onTabClicked = { onTabClicked(Tab.DESCRIPTION) }
                         )
                         HorizontalSpacer(8.dp)
@@ -219,10 +220,33 @@ fun JobScreen(
                                 .fillMaxHeight(),
                             tab = Tab.COMPANY,
                             selectedTab = selectedTab,
-                            textResource = R.string.job_company,
+                            textResource = R.string.job_company_tab,
                             onTabClicked = { onTabClicked(Tab.COMPANY) }
                         )
                     }
+                    VerticalSpacer(16.dp)
+                    Text(
+                        text = stringResource(R.string.job_description),
+                        style = TextStyle(
+                            fontFamily = inter,
+                            fontWeight = FontWeight.SemiBold,
+                            fontSize = 12.sp,
+                            lineHeight = 15.sp
+                        ),
+                        color = mineShaft
+                    )
+                    VerticalSpacer(8.dp)
+                    Text(
+                        text = job.description,
+                        style = TextStyle(
+                            fontFamily = inter,
+                            fontWeight = FontWeight.Normal,
+                            fontSize = 12.sp,
+                            lineHeight = 15.sp
+                        ),
+                        textAlign = TextAlign.Justify,
+                        color = gray
+                    )
                 }
             }
         }

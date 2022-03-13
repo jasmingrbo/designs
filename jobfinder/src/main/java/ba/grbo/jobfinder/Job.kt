@@ -27,7 +27,8 @@ data class Job(
     val bookmarked: Boolean,
     val logoBackgroundColor: Color,
     @DrawableRes val employerLogoResource: Int,
-    @DrawableRes val jobImageResource: Int = R.drawable.job
+    @DrawableRes val jobImageResource: Int = R.drawable.job,
+    val description: String,
 )
 
 enum class EmploymentType {
@@ -55,7 +56,8 @@ val popularJobs = listOf(
         seniority = SENIOR,
         bookmarked = false,
         logoBackgroundColor = white,
-        employerLogoResource = R.drawable.tokopedia
+        employerLogoResource = R.drawable.tokopedia,
+        description = "Project managers play the lead role in planning, executing, monitoring, controlling, and closing out projects. They are accountable for the entire project scope, the project team and resources, the project budget, and the success or failure of the project."
     ),
     Job(
         id = 2,
@@ -68,7 +70,8 @@ val popularJobs = listOf(
         seniority = JUNIOR,
         bookmarked = false,
         logoBackgroundColor = dodgerBlue.copy(alpha = 0.1f),
-        employerLogoResource = R.drawable.olx
+        employerLogoResource = R.drawable.olx,
+        description = "Project managers play the lead role in planning, executing, monitoring, controlling, and closing out projects. They are accountable for the entire project scope, the project team and resources, the project budget, and the success or failure of the project."
     )
 )
 
@@ -84,7 +87,8 @@ val jobs = listOf(
         seniority = SENIOR,
         bookmarked = false,
         logoBackgroundColor = chateauGreen.copy(alpha = 0.1f),
-        employerLogoResource = R.drawable.google
+        employerLogoResource = R.drawable.google,
+        description = "Project managers play the lead role in planning, executing, monitoring, controlling, and closing out projects. They are accountable for the entire project scope, the project team and resources, the project budget, and the success or failure of the project."
     ),
     Job(
         id = 4,
@@ -97,7 +101,8 @@ val jobs = listOf(
         seniority = MEDIOR,
         bookmarked = false,
         logoBackgroundColor = dodgerBlue.copy(alpha = 0.1f),
-        employerLogoResource = R.drawable.facebook
+        employerLogoResource = R.drawable.facebook,
+        description = "Project managers play the lead role in planning, executing, monitoring, controlling, and closing out projects. They are accountable for the entire project scope, the project team and resources, the project budget, and the success or failure of the project."
     ),
     Job(
         id = 5,
@@ -110,7 +115,8 @@ val jobs = listOf(
         seniority = SENIOR,
         bookmarked = false,
         logoBackgroundColor = amaranth.copy(alpha = 0.1f),
-        employerLogoResource = R.drawable.bukalapak
+        employerLogoResource = R.drawable.bukalapak,
+        description = "Project managers play the lead role in planning, executing, monitoring, controlling, and closing out projects. They are accountable for the entire project scope, the project team and resources, the project budget, and the success or failure of the project."
     ),
     Job(
         id = 6,
@@ -123,7 +129,8 @@ val jobs = listOf(
         seniority = SENIOR,
         bookmarked = false,
         logoBackgroundColor = funGreen.copy(alpha = 0.1f),
-        employerLogoResource = R.drawable.gojek
+        employerLogoResource = R.drawable.gojek,
+        description = "Project managers play the lead role in planning, executing, monitoring, controlling, and closing out projects. They are accountable for the entire project scope, the project team and resources, the project budget, and the success or failure of the project."
     ),
     Job(
         id = 7,
@@ -136,7 +143,8 @@ val jobs = listOf(
         seniority = SENIOR,
         bookmarked = false,
         logoBackgroundColor = black.copy(alpha = 0.1f),
-        employerLogoResource = R.drawable.apple
+        employerLogoResource = R.drawable.apple,
+        description = "Project managers play the lead role in planning, executing, monitoring, controlling, and closing out projects. They are accountable for the entire project scope, the project team and resources, the project budget, and the success or failure of the project."
     ),
     Job(
         id = 8,
@@ -149,6 +157,7 @@ val jobs = listOf(
         seniority = MEDIOR,
         bookmarked = false,
         logoBackgroundColor = cerulean.copy(alpha = 0.1f),
-        employerLogoResource = R.drawable.twitter
+        employerLogoResource = R.drawable.twitter,
+        description = "Project managers play the lead role in planning, executing, monitoring, controlling, and closing out projects. They are accountable for the entire project scope, the project team and resources, the project budget, and the success or failure of the project."
     ),
 )
