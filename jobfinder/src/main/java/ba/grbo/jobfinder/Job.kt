@@ -29,6 +29,7 @@ data class Job(
     @DrawableRes val employerLogoResource: Int,
     @DrawableRes val jobImageResource: Int = R.drawable.job,
     val description: String,
+    val requirements: List<String>
 )
 
 enum class EmploymentType {
@@ -57,7 +58,14 @@ val popularJobs = listOf(
         bookmarked = false,
         logoBackgroundColor = white,
         employerLogoResource = R.drawable.tokopedia,
-        description = "Project managers play the lead role in planning, executing, monitoring, controlling, and closing out projects. They are accountable for the entire project scope, the project team and resources, the project budget, and the success or failure of the project."
+        description = "Project managers play the lead role in planning, executing, monitoring, controlling, and closing out projects. They are accountable for the entire project scope, the project team and resources, the project budget, and the success or failure of the project.",
+        requirements = listOf(
+            "Bachelor's degree in computer science, business, or a related field",
+            "5-8 years of project management and related experience",
+            "Project Management Professional (PMP) certification preferred",
+            "Proven ability to solve problems creatively",
+            "Strong familiarity with project management software tools, methodologies, and best practices"
+        )
     ),
     Job(
         id = 2,
@@ -71,7 +79,14 @@ val popularJobs = listOf(
         bookmarked = false,
         logoBackgroundColor = dodgerBlue.copy(alpha = 0.1f),
         employerLogoResource = R.drawable.olx,
-        description = "Project managers play the lead role in planning, executing, monitoring, controlling, and closing out projects. They are accountable for the entire project scope, the project team and resources, the project budget, and the success or failure of the project."
+        description = "Project managers play the lead role in planning, executing, monitoring, controlling, and closing out projects. They are accountable for the entire project scope, the project team and resources, the project budget, and the success or failure of the project.",
+        requirements = listOf(
+            "Bachelor's degree in computer science, business, or a related field",
+            "5-8 years of project management and related experience",
+            "Project Management Professional (PMP) certification preferred",
+            "Proven ability to solve problems creatively",
+            "Strong familiarity with project management software tools, methodologies, and best practices"
+        )
     )
 )
 
@@ -88,7 +103,14 @@ val jobs = listOf(
         bookmarked = false,
         logoBackgroundColor = chateauGreen.copy(alpha = 0.1f),
         employerLogoResource = R.drawable.google,
-        description = "Project managers play the lead role in planning, executing, monitoring, controlling, and closing out projects. They are accountable for the entire project scope, the project team and resources, the project budget, and the success or failure of the project."
+        description = "Project managers play the lead role in planning, executing, monitoring, controlling, and closing out projects. They are accountable for the entire project scope, the project team and resources, the project budget, and the success or failure of the project.",
+        requirements = listOf(
+            "Bachelor's degree in computer science, business, or a related field",
+            "5-8 years of project management and related experience",
+            "Project Management Professional (PMP) certification preferred",
+            "Proven ability to solve problems creatively",
+            "Strong familiarity with project management software tools, methodologies, and best practices"
+        )
     ),
     Job(
         id = 4,
@@ -102,7 +124,14 @@ val jobs = listOf(
         bookmarked = false,
         logoBackgroundColor = dodgerBlue.copy(alpha = 0.1f),
         employerLogoResource = R.drawable.facebook,
-        description = "Project managers play the lead role in planning, executing, monitoring, controlling, and closing out projects. They are accountable for the entire project scope, the project team and resources, the project budget, and the success or failure of the project."
+        description = "Project managers play the lead role in planning, executing, monitoring, controlling, and closing out projects. They are accountable for the entire project scope, the project team and resources, the project budget, and the success or failure of the project.",
+        requirements = listOf(
+            "Bachelor's degree in computer science, business, or a related field",
+            "5-8 years of project management and related experience",
+            "Project Management Professional (PMP) certification preferred",
+            "Proven ability to solve problems creatively",
+            "Strong familiarity with project management software tools, methodologies, and best practices"
+        )
     ),
     Job(
         id = 5,
@@ -116,7 +145,14 @@ val jobs = listOf(
         bookmarked = false,
         logoBackgroundColor = amaranth.copy(alpha = 0.1f),
         employerLogoResource = R.drawable.bukalapak,
-        description = "Project managers play the lead role in planning, executing, monitoring, controlling, and closing out projects. They are accountable for the entire project scope, the project team and resources, the project budget, and the success or failure of the project."
+        description = "Project managers play the lead role in planning, executing, monitoring, controlling, and closing out projects. They are accountable for the entire project scope, the project team and resources, the project budget, and the success or failure of the project.",
+        requirements = listOf(
+            "Bachelor's degree in computer science, business, or a related field",
+            "5-8 years of project management and related experience",
+            "Project Management Professional (PMP) certification preferred",
+            "Proven ability to solve problems creatively",
+            "Strong familiarity with project management software tools, methodologies, and best practices"
+        )
     ),
     Job(
         id = 6,
@@ -130,7 +166,14 @@ val jobs = listOf(
         bookmarked = false,
         logoBackgroundColor = funGreen.copy(alpha = 0.1f),
         employerLogoResource = R.drawable.gojek,
-        description = "Project managers play the lead role in planning, executing, monitoring, controlling, and closing out projects. They are accountable for the entire project scope, the project team and resources, the project budget, and the success or failure of the project."
+        description = "Project managers play the lead role in planning, executing, monitoring, controlling, and closing out projects. They are accountable for the entire project scope, the project team and resources, the project budget, and the success or failure of the project.",
+        requirements = listOf(
+            "Bachelor's degree in computer science, business, or a related field",
+            "5-8 years of project management and related experience",
+            "Project Management Professional (PMP) certification preferred",
+            "Proven ability to solve problems creatively",
+            "Strong familiarity with project management software tools, methodologies, and best practices"
+        )
     ),
     Job(
         id = 7,
@@ -144,7 +187,14 @@ val jobs = listOf(
         bookmarked = false,
         logoBackgroundColor = black.copy(alpha = 0.1f),
         employerLogoResource = R.drawable.apple,
-        description = "Project managers play the lead role in planning, executing, monitoring, controlling, and closing out projects. They are accountable for the entire project scope, the project team and resources, the project budget, and the success or failure of the project."
+        description = "Project managers play the lead role in planning, executing, monitoring, controlling, and closing out projects. They are accountable for the entire project scope, the project team and resources, the project budget, and the success or failure of the project.",
+        requirements = listOf(
+            "Bachelor's degree in computer science, business, or a related field",
+            "5-8 years of project management and related experience",
+            "Project Management Professional (PMP) certification preferred",
+            "Proven ability to solve problems creatively",
+            "Strong familiarity with project management software tools, methodologies, and best practices"
+        )
     ),
     Job(
         id = 8,
@@ -158,6 +208,13 @@ val jobs = listOf(
         bookmarked = false,
         logoBackgroundColor = cerulean.copy(alpha = 0.1f),
         employerLogoResource = R.drawable.twitter,
-        description = "Project managers play the lead role in planning, executing, monitoring, controlling, and closing out projects. They are accountable for the entire project scope, the project team and resources, the project budget, and the success or failure of the project."
+        description = "Project managers play the lead role in planning, executing, monitoring, controlling, and closing out projects. They are accountable for the entire project scope, the project team and resources, the project budget, and the success or failure of the project.",
+        requirements = listOf(
+            "Bachelor's degree in computer science, business, or a related field",
+            "5-8 years of project management and related experience",
+            "Project Management Professional (PMP) certification preferred",
+            "Proven ability to solve problems creatively",
+            "Strong familiarity with project management software tools, methodologies, and best practices"
+        )
     ),
 )

@@ -30,9 +30,12 @@ import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.ParagraphStyle
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import ba.grbo.jobfinder.EmploymentType
@@ -52,6 +55,7 @@ import ba.grbo.jobfinder.ui.theme.mineShaft
 import ba.grbo.jobfinder.ui.theme.white
 import ba.grbo.jobfinder.ui.theme.wildSand
 import com.google.accompanist.insets.LocalWindowInsets
+import kotlin.text.Typography.bullet
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
@@ -245,6 +249,39 @@ fun JobScreen(
                             lineHeight = 15.sp
                         ),
                         textAlign = TextAlign.Justify,
+                        color = gray
+                    )
+                    VerticalSpacer(24.dp)
+                    Text(
+                        text = stringResource(R.string.job_requirements),
+                        style = TextStyle(
+                            fontFamily = inter,
+                            fontWeight = FontWeight.SemiBold,
+                            fontSize = 12.sp,
+                            lineHeight = 15.sp
+                        ),
+                        color = mineShaft
+                    )
+                    VerticalSpacer(8.dp)
+
+                    val style = TextStyle(
+                        fontFamily = inter,
+                        fontWeight = FontWeight.Normal,
+                        fontSize = 12.sp,
+                        lineHeight = 15.sp
+                    )
+                    val text = buildAnnotatedString {
+                        for (requirement in job.requirements) {
+                            withStyle(style.toParagraphStyle()) {
+                                append(bullet)
+                                append(" ")
+                                append(requirement)
+                            }
+                        }
+                    }
+                    Text(
+                        text = text,
+                        style = style,
                         color = gray
                     )
                 }
