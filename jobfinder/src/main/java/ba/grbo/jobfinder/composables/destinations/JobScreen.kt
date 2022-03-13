@@ -269,14 +269,12 @@ fun JobScreen(
                         fontWeight = FontWeight.Normal,
                         fontSize = 12.sp,
                         lineHeight = 15.sp,
-                        textIndent = TextIndent(restLine = 16.sp)
+                        textIndent = TextIndent(restLine = 14.75.sp)
                     )
                     val text = buildAnnotatedString {
                         for (requirement in job.requirements) {
                             withStyle(style.toParagraphStyle()) {
-                                append(bullet)
-                                append("\t\t")
-                                append(requirement)
+                                append("$bullet\t\t$requirement")
                             }
                         }
                     }
