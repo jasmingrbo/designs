@@ -8,13 +8,18 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Card
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Icon
@@ -64,7 +69,9 @@ fun JobScreen(
     job: Job,
     selectedTab: Tab,
     onBackButtonClicked: () -> Unit,
-    onTabClicked: (Tab) -> Unit
+    onTabClicked: (Tab) -> Unit,
+    onApplyNowButtonClicked: (Int) -> Unit,
+    onBookmarkJobButtonClicked: (Int) -> Unit
 ) {
     Layout(
         modifier = modifier,
@@ -278,11 +285,62 @@ fun JobScreen(
                             }
                         }
                     }
-                    Text(
-                        text = text,
-                        style = style,
-                        color = gray
-                    )
+                    Column(modifier = Modifier
+                        .weight(1f)
+                        .verticalScroll(rememberScrollState())) {
+                        Text(
+                            text = text,
+                            style = style,
+                            color = gray
+                        )
+                    }
+                    VerticalSpacer(20.dp)
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(52.dp)
+                    ) {
+                        Button(
+                            modifier = Modifier
+                                .weight(1f)
+                                .fillMaxHeight(),
+                            shape = MaterialTheme.shapes.large,
+                            colors = ButtonDefaults.buttonColors(
+                                backgroundColor = eastBay,
+                                contentColor = white
+                            ),
+                            onClick = { onApplyNowButtonClicked(job.id) }
+                        ) {
+                            Text(
+                                modifier = Modifier.align(Alignment.CenterVertically),
+                                text = stringResource(R.string.job_apply_now),
+                                style = TextStyle(
+                                    fontFamily = inter,
+                                    fontWeight = FontWeight.SemiBold,
+                                    fontSize = 18.sp,
+                                    lineHeight = 22.sp
+                                )
+                            )
+                        }
+                        HorizontalSpacer(8.dp)
+                        Button(
+                            modifier = Modifier
+                                .fillMaxHeight()
+                                .aspectRatio(1f),
+                            shape = MaterialTheme.shapes.large,
+                            colors = ButtonDefaults.buttonColors(
+                                backgroundColor = white,
+                                contentColor = eastBay
+                            ),
+                            onClick = { onBookmarkJobButtonClicked(job.id) }
+                        ) {
+                            Icon(
+                                modifier = Modifier.align(Alignment.CenterVertically),
+                                painter = painterResource(R.drawable.ic_bookmark_home),
+                                contentDescription = null
+                            )
+                        }
+                    }
                 }
             }
         }

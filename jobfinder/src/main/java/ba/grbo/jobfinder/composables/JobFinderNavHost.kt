@@ -138,7 +138,9 @@ fun JobFinderNavHost(
                 job = job,
                 onBackButtonClicked = { navController.popBackStack() },
                 selectedTab = Tab.DESCRIPTION,
-                onTabClicked = { showNotImplementedToast() }
+                onTabClicked = { showNotImplementedToast() },
+                onApplyNowButtonClicked = { showNotImplementedToast() },
+                onBookmarkJobButtonClicked = { showNotImplementedToast() }
             )
         }
     }

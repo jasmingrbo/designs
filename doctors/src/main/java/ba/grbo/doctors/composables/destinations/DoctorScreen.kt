@@ -167,15 +167,14 @@ fun DoctorScreen(
                 shape = MaterialTheme.shapes.medium,
                 colors = ButtonDefaults.buttonColors(
                     backgroundColor = MaterialTheme.colors.secondary,
-                    contentColor = white
+                    contentColor = athensGray
                 ),
                 onClick = { onMakeAppointmentButtonClicked(doctor.id) }
             ) {
                 Text(
                     modifier = Modifier.align(Alignment.CenterVertically),
                     text = stringResource(R.string.doctor_make_appointment_button),
-                    style = MaterialTheme.typography.button,
-                    color = athensGray
+                    style = MaterialTheme.typography.button
                 )
             }
         }

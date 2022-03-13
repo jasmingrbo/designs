@@ -22,4 +22,5 @@
     <string name="job_company_tab">Company</string>
     <string name="job_description">Job Description</string>
     <string name="job_requirements">Requirements</string>
+    <string name="job_apply_now">Apply Now</string>
 </resources>
