@@ -23,7 +23,6 @@ fun DoctorsNavHost(
     navController: NavHostController = rememberNavController(),
     showNotImplementedToast: () -> Unit
 ) {
-
     NavHost(
         modifier = modifier,
         navController = navController,

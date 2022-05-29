@@ -17,26 +17,12 @@ private val LightColorPalette = lightColors(
     primaryVariant = Purple700,
     secondary = Teal200
 
-    /* Other default colors to override
-    background = Color.White,
-    surface = Color.White,
-    onPrimary = Color.White,
-    onSecondary = Color.Black,
-    onBackground = Color.Black,
-    onSurface = Color.Black,
-    */
 )
 
 @Composable
-fun DesignsTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
-    val colors = if (darkTheme) {
-        DarkColorPalette
-    } else {
-        LightColorPalette
-    }
-
+fun HealthcareTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
     MaterialTheme(
-        colors = colors,
+        colors = if (darkTheme) DarkColorPalette else LightColorPalette,
         typography = Typography,
         shapes = Shapes,
         content = content

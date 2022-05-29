@@ -11,35 +11,22 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import ba.grbo.healthcare.ui.theme.DesignsTheme
+import ba.grbo.healthcare.composables.HealthcareNavHost
+import ba.grbo.healthcare.ui.theme.HealthcareTheme
 
 class HealthcareActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
         super.onCreate(savedInstanceState)
         setContent {
-            DesignsTheme {
-                // A surface container using the 'background' color from the theme
+            HealthcareTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    HealthcareNavHost()
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    DesignsTheme {
-        Greeting("Android")
     }
 }
