@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.Designs" parent="android:Theme.Material.Light.NoActionBar">
+    <style name="Theme.Healthcare" parent="android:Theme.Material.Light.NoActionBar">
         <item name="android:statusBarColor">@color/purple_700</item>
     </style>
 
-    <style name="Theme.Designs.Starting" parent="Theme.SplashScreen">
+    <style name="Theme.Healthcare.Starting" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/astronaut</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/splash_screen</item>
-        <item name="postSplashScreenTheme">@style/Theme.Designs</item>
+        <item name="postSplashScreenTheme">@style/Theme.Healthcare</item>
     </style>
 </resources>
