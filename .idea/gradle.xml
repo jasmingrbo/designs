@@ -11,10 +11,10 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/doctors" />
+            <option value="$PROJECT_DIR$/healthcare" />
             <option value="$PROJECT_DIR$/jobfinder" />
           </set>
         </option>
-        <option name="resolveModulePerSourceSet" value="false" />
       </GradleProjectSettings>
     </option>
   </component>
