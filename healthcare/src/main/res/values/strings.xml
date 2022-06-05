@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Healthcare</string>
+    <string name="onboarding_skip_button">SKIP</string>
+    <string name="onboarding_consultation_title">Consultation\nwith a doctor</string>
+    <string name="onboarding_consultation_description">We help patients manage and schedule appointments with the doctors or plan a video call or opt for a real-time chat.</string>
+    <string name="onboarding_ehr_title">Keep EHR files\nin one place</string>
+    <string name="onboarding_ehr_description">Our vision is to improve the way the world. Our real world data product has visibility into 100 million electronic health records.</string>
+    <string name="onboarding_medications_title">Buy medications\nat a discount</string>
+    <string name="onboarding_medications_description">We help patients manage and schedule appointments with the doctors or plan a video call or opt for a real-time chat.</string>
 </resources>
