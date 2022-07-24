@@ -1,0 +1,41 @@
+ext {
+    version = [
+            compose          : "1.1.1",
+            core             : "1.8.0",
+            lifecycleRuntime : "2.5.0",
+            composeActivity  : "1.5.0",
+            composeNavigation: "2.5.0",
+            splashScreen     : "1.0.0-rc01",
+            accompanist      : "0.23.1"
+    ]
+
+    conf = [
+            minSdk                   : 21,
+            targetSdk                : 32,
+            compileSdk               : 32,
+            testInstrumentationRunner: "androidx.test.runner.AndroidJUnitRunner",
+            jvmTarget                : "1.8",
+            javaCompileCompatibility : JavaVersion.VERSION_1_8
+    ]
+
+    androidLib = [
+            core             : "androidx.core:core-ktx:$version.core",
+            lifecycleRuntime : "androidx.lifecycle:lifecycle-runtime-ktx:$version.lifecycleRuntime",
+            composeActivity  : "androidx.activity:activity-compose:$version.composeActivity",
+            composeNavigation: "androidx.navigation:navigation-compose:$version.composeNavigation",
+            splashScreen     : "androidx.core:core-splashscreen:$version.splashScreen"
+    ]
+
+    compose = [
+            ui            : "androidx.compose.ui:ui:$version.compose",
+            material      : "androidx.compose.material:material:$version.compose",
+            toolingPreview: "androidx.compose.ui:ui-tooling-preview:$version.compose",
+            tooling       : "androidx.compose.ui:ui-tooling:$version.compose",
+            testManifest  : "androidx.compose.ui:ui-test-manifest:$version.compose"
+    ]
+
+    accompanist = [
+            systemUiController: "com.google.accompanist:accompanist-systemuicontroller:$version.accompanist",
+            insets: "com.google.accompanist:accompanist-insets:$version.accompanist"
+    ]
+}

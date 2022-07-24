@@ -23,9 +23,7 @@ class JobFinderActivity : ComponentActivity() {
                     Surface(
                         modifier = Modifier.fillMaxSize(),
                         color = MaterialTheme.colors.background
-                    ) {
-                        JobFinderNavHost(showNotImplementedToast = ::showNotImplementedToast)
-                    }
+                    ) { JobFinderNavHost(showNotImplementedToast = ::showNotImplementedToast) }
                 }
             }
         }

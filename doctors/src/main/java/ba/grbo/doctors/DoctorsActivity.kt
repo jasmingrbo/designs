@@ -19,9 +19,7 @@ class DoctorsActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
-                ) {
-                    DoctorsNavHost(showNotImplementedToast = ::showNotImplementedToast)
-                }
+                ) { DoctorsNavHost(showNotImplementedToast = ::showNotImplementedToast) }
             }
         }
     }

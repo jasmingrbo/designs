@@ -1,19 +1,17 @@
 plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
+    id "com.android.application"
+    id "org.jetbrains.kotlin.android"
 }
 
 android {
-    compileSdk 31
+    compileSdk conf.compileSdk
 
     defaultConfig {
         applicationId "ba.grbo.jobfinder"
-        minSdk 21
-        targetSdk 31
-        versionCode 1
-        versionName "1.0"
+        minSdk conf.minSdk
+        targetSdk conf.targetSdk
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner conf.testInstrumentationRunner
         vectorDrawables {
             useSupportLibrary true
         }
@@ -22,38 +20,41 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility conf.javaCompileCompatibility
+        targetCompatibility conf.javaCompileCompatibility
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = conf.jvmTarget
     }
     buildFeatures {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion compose_version
+        kotlinCompilerExtensionVersion composeVersion
     }
     packagingOptions {
         resources {
-            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
 }
 
 dependencies {
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation "androidx.compose.ui:ui:$compose_version"
-    implementation "androidx.compose.material:material:$compose_version"
-    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.4.1'
-    implementation 'androidx.activity:activity-compose:1.4.0'
-    implementation "androidx.navigation:navigation-compose:2.4.2"
-    implementation "com.google.accompanist:accompanist-systemuicontroller:0.23.1"
-    implementation "com.google.accompanist:accompanist-insets:0.23.1"
-    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+    implementation androidLib.core
+    implementation androidLib.lifecycleRuntime
+    implementation androidLib.composeActivity
+    implementation androidLib.composeNavigation
+
+    implementation compose.ui
+    implementation compose.material
+    implementation compose.toolingPreview
+
+    implementation accompanist.systemUiController
+    implementation accompanist.insets
+
+    debugImplementation compose.tooling
 }
