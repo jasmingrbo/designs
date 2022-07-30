@@ -8,16 +8,17 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import ba.grbo.healthcare.R
 
-val inter = FontFamily(
-    Font(R.font.inter),
-    Font(R.font.inter, FontWeight.SemiBold),
+val inter = FontFamily(Font(R.font.inter))
+val averia = FontFamily(
+    Font(R.font.averia_serif_libre_light),
+    Font(R.font.averia_serif_libre_bold, FontWeight.Bold)
 )
 
 val Typography = Typography(
     h3 = TextStyle(
-        fontFamily = inter,
+        fontFamily = averia,
         fontWeight = FontWeight.Normal,
-        fontSize = 36.sp
+        fontSize = 40.sp
     ),
     subtitle2 = TextStyle(
         fontFamily = inter,

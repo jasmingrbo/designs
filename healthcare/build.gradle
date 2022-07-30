@@ -54,6 +54,9 @@ dependencies {
     implementation compose.material
     implementation compose.toolingPreview
 
+    implementation accompanist.systemUiController
+    implementation accompanist.pager
+
     debugImplementation compose.tooling
     debugImplementation compose.testManifest
 }

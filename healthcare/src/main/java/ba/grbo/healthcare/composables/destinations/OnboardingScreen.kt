@@ -2,14 +2,12 @@ package ba.grbo.healthcare.composables.destinations
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
-import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -29,30 +27,34 @@ import ba.grbo.healthcare.ui.theme.royalBlue
 
 @Composable
 fun OnboardingScreen(
-    modifier: Modifier = Modifier,
     data: OnboardingScreenData,
-    showSkipButton: Boolean,
-    onSkipButtonClicked: () -> Unit
+    spacer: Boolean
 ) {
     Column(
-        modifier = modifier
-            .background(data.backgroundColor)
+        modifier = Modifier
             .fillMaxSize()
-            .padding(20.dp),
+            .padding(start = 20.dp, end = 20.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        if (showSkipButton) {
-            TextButton(
-                modifier = Modifier.align(Alignment.End),
-                shape = MaterialTheme.shapes.large,
-                colors = ButtonDefaults.textButtonColors(contentColor = Color.White),
-                onClick = onSkipButtonClicked
-            ) { Text(text = stringResource(R.string.onboarding_skip_button)) }
-        }
-        Image(painter = painterResource(data.imageResource), contentDescription = null)
+        val height = ButtonDefaults.MinHeight +
+                ButtonDefaults.TextButtonContentPadding.calculateTopPadding() +
+                ButtonDefaults.TextButtonContentPadding.calculateBottomPadding()
+        VerticalSpacer(
+            height = if (spacer) height else height / 2
+        )
+
+        Image(
+            modifier = Modifier.weight(1f),
+            painter = painterResource(data.imageResource),
+            contentDescription = null
+        )
+
         VerticalSpacer(40.dp)
+
         Title(txtResource = data.titleTextResource)
+
         VerticalSpacer(12.dp)
+
         Text(
             modifier = Modifier.padding(horizontal = 36.dp),
             text = stringResource(data.descriptionTextResource),
@@ -71,10 +73,8 @@ private fun Title(
     val words = stringResource(txtResource).split('\n')
     val text = buildAnnotatedString {
         withStyle(
-            MaterialTheme.typography.h3.copy(fontWeight = FontWeight.SemiBold).toSpanStyle()
-        ) {
-            append("${words.first()}\n")
-        }
+            MaterialTheme.typography.h3.copy(fontWeight = FontWeight.Bold).toSpanStyle()
+        ) { append("${words.first()}\n") }
         withStyle(MaterialTheme.typography.h3.toSpanStyle()) {
             for (i in 1..words.lastIndex) append(words[i])
         }
@@ -98,7 +98,6 @@ fun PreviewOnboardingScreen() {
             titleTextResource = R.string.onboarding_consultation_title,
             descriptionTextResource = R.string.onboarding_consultation_description
         ),
-        showSkipButton = true,
-        onSkipButtonClicked = {}
+        spacer = true
     )
 }

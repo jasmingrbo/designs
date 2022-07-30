@@ -36,6 +36,7 @@ ext {
 
     accompanist = [
             systemUiController: "com.google.accompanist:accompanist-systemuicontroller:$version.accompanist",
-            insets: "com.google.accompanist:accompanist-insets:$version.accompanist"
+            insets: "com.google.accompanist:accompanist-insets:$version.accompanist",
+            pager: "com.google.accompanist:accompanist-pager:$version.accompanist"
     ]
 }

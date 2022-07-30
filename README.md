@@ -1,6 +1,9 @@
 # Designs
-A collection of designs (UI &amp; UX) implemented using Android's new UI toolkit Jetpack Compose.
-
+- A collection of designs (UI &amp; UX) implemented using Android's new UI toolkit Jetpack Compose.
+- Improvisations were sometimes necessary and therefore made.
+- The code is not "production" ready as
+  the UI is done rather very quickly, in a prototype manner so to say.
+- Projects are done with different level of Compose knowledge I had at the time of writing them.
 
 ## Doctors
 * Design author: Gilang Segara
@@ -21,4 +24,13 @@ A collection of designs (UI &amp; UX) implemented using Android's new UI toolkit
   <img src="./jobfinder/screenshots/1.png" width="270" height="555">
   <img src="./jobfinder/screenshots/2.png" width="270" height="555">
   <img src="./jobfinder/screenshots/3.png" width="270" height="555">
+</p>
+
+## Healthcare
+* Design author: Boro
+* Design location: https://dribbble.com/shots/18303918-Care-Me-App-Onboarding
+* App presentation:
+
+<p align="middle">
+  <img src="./healthcare/gifs/presentation.gif" alt="animated" width="270" height="555"/>
 </p>
