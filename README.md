@@ -1,5 +1,5 @@
 # Designs
-- A collection of designs (UI &amp; UX) implemented using Android's new UI toolkit Jetpack Compose.
+- A collection of designs implemented using Android's new UI toolkit Jetpack Compose.
 - Improvisations were sometimes necessary and therefore made.
 - The code is not "production" ready as
   the UI is done rather very quickly, in a prototype manner so to say.
