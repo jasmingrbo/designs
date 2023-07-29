@@ -1,0 +1,39 @@
+[versions]
+androidxComposeBom = "2023.06.01"
+androidxComposeCompiler = "1.5.1"
+androidxCoreKtx = "1.10.1"
+androidxCoreSplashscreen = "1.0.1"
+androidxLifecylceRuntimeKtx = "2.6.1"
+androidxActivityCompose = "1.7.2"
+androidxNavigationCompose = "2.6.0"
+accompanist = "0.30.1"
+androidGradlePlugin = "8.1.0"
+kotlin = "1.9.0"
+ksp = "1.9.0-1.0.11"
+composeCompiler = "1.5.1"
+minSdk = "21"
+targetSdk = "33"
+compileSdk = "33"
+testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+jvmTarget = "VERSION_17"
+packingResourcesExcludes = "/META-INF/{AL2.0,LGPL2.1}"
+
+[libraries]
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidxComposeBom" }
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-compose-material = { group = "androidx.compose.material", name = "material" }
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCoreKtx" }
+androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "androidxCoreSplashscreen" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidxLifecylceRuntimeKtx" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivityCompose" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidxNavigationCompose" }
+accompanist-system-ui-controller = { group = "com.google.accompanist", name = "accompanist-systemuicontroller", version.ref = "accompanist" }
+accompanist-insets = { group = "com.google.accompanist", name = "accompanist-insets", version.ref = "accompanist" }
+accompanist-pager = { group = "com.google.accompanist", name = "accompanist-pager", version.ref = "accompanist" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+jetbrains-kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }

@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Designs"
-include ':doctors'
-include ':jobfinder'
-include ':healthcare'
+include(":doctors")
+include(":jobfinder")
+include(":healthcare")
