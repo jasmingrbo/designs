@@ -43,7 +43,6 @@ import ba.grbo.doctors.composables.Doctor
 import ba.grbo.doctors.composables.Searcher
 import ba.grbo.doctors.composables.VerticalSpacer
 import ba.grbo.doctors.ui.theme.grayChateau
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filter
 

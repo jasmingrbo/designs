@@ -41,6 +41,7 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+    namespace "ba.grbo.doctors"
 }
 
 dependencies {
@@ -49,9 +50,11 @@ dependencies {
     implementation androidLib.composeActivity
     implementation androidLib.composeNavigation
 
+    implementation platform(compose.bom)
     implementation compose.ui
     implementation compose.material
     implementation compose.toolingPreview
 
+    debugImplementation platform(compose.bom)
     debugImplementation compose.tooling
 }

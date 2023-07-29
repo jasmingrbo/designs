@@ -1,21 +1,21 @@
 ext {
     version = [
-            compose          : "1.1.1",
-            core             : "1.8.0",
-            lifecycleRuntime : "2.5.0",
-            composeActivity  : "1.5.0",
-            composeNavigation: "2.5.0",
-            splashScreen     : "1.0.0-rc01",
-            accompanist      : "0.23.1"
+            compose          : "2023.06.01",
+            core             : "1.10.1",
+            lifecycleRuntime : "2.6.1",
+            composeActivity  : "1.7.2",
+            composeNavigation: "2.6.0",
+            splashScreen     : "1.0.0",
+            accompanist      : "0.30.1"
     ]
 
     conf = [
             minSdk                   : 21,
-            targetSdk                : 32,
-            compileSdk               : 32,
+            targetSdk                : 33,
+            compileSdk               : 33,
             testInstrumentationRunner: "androidx.test.runner.AndroidJUnitRunner",
-            jvmTarget                : "1.8",
-            javaCompileCompatibility : JavaVersion.VERSION_1_8
+            jvmTarget                : "17",
+            javaCompileCompatibility : JavaVersion.VERSION_17
     ]
 
     androidLib = [
@@ -27,16 +27,17 @@ ext {
     ]
 
     compose = [
-            ui            : "androidx.compose.ui:ui:$version.compose",
-            material      : "androidx.compose.material:material:$version.compose",
-            toolingPreview: "androidx.compose.ui:ui-tooling-preview:$version.compose",
-            tooling       : "androidx.compose.ui:ui-tooling:$version.compose",
-            testManifest  : "androidx.compose.ui:ui-test-manifest:$version.compose"
+            bom           : "androidx.compose:compose-bom:$version.compose",
+            ui            : "androidx.compose.ui:ui",
+            material      : "androidx.compose.material:material",
+            toolingPreview: "androidx.compose.ui:ui-tooling-preview",
+            tooling       : "androidx.compose.ui:ui-tooling",
+            testManifest  : "androidx.compose.ui:ui-test-manifest"
     ]
 
     accompanist = [
             systemUiController: "com.google.accompanist:accompanist-systemuicontroller:$version.accompanist",
-            insets: "com.google.accompanist:accompanist-insets:$version.accompanist",
-            pager: "com.google.accompanist:accompanist-pager:$version.accompanist"
+            insets            : "com.google.accompanist:accompanist-insets:$version.accompanist",
+            pager             : "com.google.accompanist:accompanist-pager:$version.accompanist"
     ]
 }

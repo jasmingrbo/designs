@@ -19,7 +19,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -87,12 +86,11 @@ fun Doctor(
                     )
                     Box(modifier = Modifier.weight(1f))
                     Surface(
-                        modifier = Modifier.height(24.dp),
                         onClick = onAvailabilityButtonClicked,
-                        color = if (doctor.available) blueRomance else albescentWhite,
-                        contentColor = if (doctor.available) MaterialTheme.colors.secondary else grenadier,
+                        modifier = Modifier.height(24.dp),
                         shape = MaterialTheme.shapes.small,
-                        role = Role.Button
+                        color = if (doctor.available) blueRomance else albescentWhite,
+                        contentColor = if (doctor.available) MaterialTheme.colors.secondary else grenadier
                     ) {
                         Text(
                             modifier = Modifier.padding(horizontal = 12.dp, vertical = 4.dp),
